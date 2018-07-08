@@ -245,83 +245,137 @@
 <p>​    <strong>position</strong>：</p>
 <p>​    <strong>flex</strong>：</p>
 <p>​    <strong>box-sizing</strong>：人们慢慢的意识到传统的盒子模型不直接，所以他们新增了一个叫做 <code>box-sizing</code> 的CSS属性。当你设置一个元素为 <code>box-sizing: border-box;</code> 时，此元素的内边距和边框不再会增加它的宽度</p>
-<ol>
-<li><h4 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h4><p>| 定位方式         | position属性值      | 描述                                                         |<br>| —————- | ——————- | ———————————————————— |<br>| 静态定位（默认） | position: static;   | 静态定位是每个元素获取的默认值——它只是意味着“将元素放入它在文档布局流中的正常位置 |<br>| 相对定位         | position: relative; | 与静态定位非常相似，占据在正常的文档流中， 你仍然可以修改它的最终位置，包括让它与页面上的其他元素重叠，通过对它自己在文档流中的本来位置设定偏移 |<br>| 绝对定位         | position: absolute; | 绝对定位的元素不再存在于正常文档布局流中； 绝对定位的元素相对于其定位的元素，通过在元素的其他祖先之一上设置定位来实现的；元素重叠通过z-index设置覆盖优先级 |<br>| 固定定位         | position: fixed;    | 与绝对定位的工作方式完全相同，只有一个主要区别：绝对定位固定元素是相对于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/html" target="_blank" rel="noopener"><html></html></a>元素或其最近的定位祖先，而固定定位固定元素则是相对于浏览器视口本身 |<br>| 粘性定位         | position: sticky    | 基本上是相对位置和固定位置之间的混合，其允许定位的元件像它被相对定位一样动作，直到其滚动到某一阈值点（例如，从视口顶部10像素），之后它变得固定 |</p>
-</li>
-</ol>
-<ol>
-<li><h4 id="弹性盒子"><a href="#弹性盒子" class="headerlink" title="弹性盒子"></a>弹性盒子</h4><p>一些布局难以用<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats" target="_blank" rel="noopener">floats</a>和 <a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Positioning" target="_blank" rel="noopener">positioning</a>实现，弹性盒子使得很多布局任务变得更加容易</p>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><table>
+<thead>
+<tr>
+<th>定位方式</th>
+<th>position属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>静态定位（默认）</td>
+<td>position: static;</td>
+<td>静态定位是每个元素获取的默认值——它只是意味着“将元素放入它在文档布局流中的正常位置</td>
+</tr>
+<tr>
+<td>相对定位</td>
+<td>position: relative;</td>
+<td>与静态定位非常相似，占据在正常的文档流中， 你仍然可以修改它的最终位置，包括让它与页面上的其他元素重叠，通过对它自己在文档流中的本来位置设定偏移</td>
+</tr>
+<tr>
+<td>绝对定位</td>
+<td>position: absolute;</td>
+<td>绝对定位的元素不再存在于正常文档布局流中； 绝对定位的元素相对于其定位的元素，通过在元素的其他祖先之一上设置定位来实现的；元素重叠通过z-index设置覆盖优先级</td>
+</tr>
+<tr>
+<td>固定定位</td>
+<td>position: fixed;</td>
+<td>与绝对定位的工作方式完全相同，只有一个主要区别：绝对定位固定元素是相对于 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/html" target="_blank" rel="noopener"><html></html></a>元素或其最近的定位祖先，而固定定位固定元素则是相对于浏览器视口本身</td>
+</tr>
+<tr>
+<td>粘性定位</td>
+<td>position: sticky</td>
+<td>基本上是相对位置和固定位置之间的混合，其允许定位的元件像它被相对定位一样动作，直到其滚动到某一阈值点（例如，从视口顶部10像素），之后它变得固定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="弹性盒子"><a href="#弹性盒子" class="headerlink" title="弹性盒子"></a>弹性盒子</h3><p>一些布局难以用<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Floats" target="_blank" rel="noopener">floats</a>和 <a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/Positioning" target="_blank" rel="noopener">positioning</a>实现，弹性盒子使得很多布局任务变得更加容易</p>
 <h5 id="flex模型说明："><a href="#flex模型说明：" class="headerlink" title="flex模型说明："></a>flex模型说明：</h5><p>当元素表现为 flex 框时，它们沿着两个轴来布局：</p>
 <p><img src="https://developer.mozilla.org/files/3739/flex_terms.png" alt="flex_terms.png"></p>
 <p>表现为柔性的盒子的元素（flex项）设定 flex/flex-xxx等属性</p>
 <p>其父元素（flex容器）设定 display: flex; </p>
-<p>| flex项属性     | 值                                              | 描述                                                         |<br>| ————– | ———————————————– | ———————————————————— |<br>| flex-direction | rou（默认）／column／ row-reverse／ row-reverse | 指定主轴的方向（flex项依次放置）                             |<br>| flex-wrap      | wrap／wrap-reverse                              | 换行                                                         |<br>| flex（缩写）   | 0 1 auto （默认）                               | 以指定最多三个不同值的缩写属性：第一个<code>flex-grow</code>无单位比例用于控制flex项占用空间比例（主轴方向）；第二个无单位比例  <code>flex-shrink</code>一般用于溢出容器的 flex 项；第三个<code>flex-basis</code>控制flex项占最小值（主轴方向 ） |<br>| order          | 0（默认）                                       | flex 项排序： order 值大的 flex 项比 order 值小的在显示顺序中更靠后（主轴方向） |</p>
-<p>| flex容器属性    | 值                                   | 描述                                                         |<br>| ————— | ———————————— | ———————————————————— |<br>| align-items     | stretch（默认）／center              | 控制 flex 项在交叉轴上的位置： 默认 stretch，其会使所有 flex 项沿着交叉轴的方向拉伸以填充父容器。如果父容器在交叉轴方向上没有固定宽度（即高度），则所有 flex 项将变得与最长的 flex 项一样长（即高度保持一致）； center 值会使这些项保持其原有的高度，但是会在交叉轴居中 |<br>| align-self      | flex-start（默认）／flex-end         | 控制 flex 项在主轴上的位置： 默认值是 flex-start，这会使所有 flex 项都位于主轴的开始处； 你也可以用 flex-end 来让 flex 项到结尾处 |<br>| justify-content | space-around／center／ space-between | 控制 flex 项在主轴上的位置：center 让 flex 项在主轴居中； space-around使所有 flex 项沿着主轴均匀地分布，在任意一端都会留有一点空间； space-between均匀分布但两侧不留下空间 |</p>
+<table>
+<thead>
+<tr>
+<th>flex项属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flex-direction</td>
+<td>rou（默认）／column／ row-reverse／ row-reverse</td>
+<td>指定主轴的方向（flex项依次放置）</td>
+</tr>
+<tr>
+<td>flex-wrap</td>
+<td>wrap／wrap-reverse</td>
+<td>换行</td>
+</tr>
+<tr>
+<td>flex（缩写）</td>
+<td>0 1 auto （默认）</td>
+<td>以指定最多三个不同值的缩写属性：第一个<code>flex-grow</code>无单位比例用于控制flex项占用空间比例（主轴方向）；第二个无单位比例  <code>flex-shrink</code>一般用于溢出容器的 flex 项；第三个<code>flex-basis</code>控制flex项占最小值（主轴方向 ）</td>
+</tr>
+<tr>
+<td>order</td>
+<td>0（默认）</td>
+<td>flex 项排序： order 值大的 flex 项比 order 值小的在显示顺序中更靠后（主轴方向）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>flex容器属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>align-items</td>
+<td>stretch（默认）／center</td>
+<td>控制 flex 项在交叉轴上的位置： 默认 stretch，其会使所有 flex 项沿着交叉轴的方向拉伸以填充父容器。如果父容器在交叉轴方向上没有固定宽度（即高度），则所有 flex 项将变得与最长的 flex 项一样长（即高度保持一致）； center 值会使这些项保持其原有的高度，但是会在交叉轴居中</td>
+</tr>
+<tr>
+<td>align-self</td>
+<td>flex-start（默认）／flex-end</td>
+<td>控制 flex 项在主轴上的位置： 默认值是 flex-start，这会使所有 flex 项都位于主轴的开始处； 你也可以用 flex-end 来让 flex 项到结尾处</td>
+</tr>
+<tr>
+<td>justify-content</td>
+<td>space-around／center／ space-between</td>
+<td>控制 flex 项在主轴上的位置：center 让 flex 项在主轴居中； space-around使所有 flex 项沿着主轴均匀地分布，在任意一端都会留有一点空间； space-between均匀分布但两侧不留下空间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="对齐（对子元素而言）"><a href="#对齐（对子元素而言）" class="headerlink" title="对齐（对子元素而言）"></a>对齐（对子元素而言）</h3><ol>
+<li><h4 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a><strong>水平居中</strong></h4><h5 id="1-行内元素水平居中"><a href="#1-行内元素水平居中" class="headerlink" title="(1) 行内元素水平居中"></a>(1) 行内元素水平居中</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;text-align: center;&#125;    //实现行内元素水平居中</span><br><span class="line">.child&#123;display: inline-block;&#125;  //子元素变成行内块元素</span><br></pre></td></tr></table></figure>
+<h5 id="2-块级元素水平居中（定宽）"><a href="#2-块级元素水平居中（定宽）" class="headerlink" title="(2)块级元素水平居中（定宽）"></a>(2)块级元素水平居中（定宽）</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;width: 200px; margin: 0 auto;&#125;   //左右margin值为auto</span><br></pre></td></tr></table></figure>
+<h5 id="3-块级元素水平居中（不定宽）"><a href="#3-块级元素水平居中（不定宽）" class="headerlink" title="(3)块级元素水平居中（不定宽）"></a>(3)块级元素水平居中（不定宽）</h5><p>可以直接给不定宽的块级元素设置text-align：center来实现，也可以给父元素加text-align:center 来实现居中效果</p>
 </li>
-</ol>
-<ol start="2">
-<li><h4 id="对齐（对子元素而言）"><a href="#对齐（对子元素而言）" class="headerlink" title="对齐（对子元素而言）"></a>对齐（对子元素而言）</h4><ol>
-<li><p><strong>水平居中</strong></p>
-<p>(1) 行内元素水平居中</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;text-align: center;&#125;    //实现行内元素水平居中</span><br><span class="line">.child&#123;display: inline-block;&#125;  //子元素变成行内块元素</span><br></pre></td></tr></table></figure>
-<p>(2)块级元素水平居中（定宽）</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;width: 200px; margin: 0 auto;&#125;   //左右margin值为auto</span><br></pre></td></tr></table></figure>
-<p>(3)块级元素水平居中（不定宽）</p>
-<p>可以直接给不定宽的块级元素设置text-align：center来实现，也可以给父元素加text-align:center 来实现居中效果</p>
-</li>
-<li><p><strong>垂直居中</strong></p>
-<p>条件：父元素是盒子容器；父元素高度确定</p>
-<p>(1)行内元素垂直居中</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;height: 300px; line-height: 300px;&#125;  //通过设定父元素的line-height为其高度来使得子元素垂直居中</span><br></pre></td></tr></table></figure>
-<p>(2)块级元素垂直居中（定高）</p>
-<p>计算子元素的margin-top或margin-bottom，计算方法为父(元素高度-子元素高度)/2</p>
-<p>(3)块级元素垂直居中（不定高）</p>
-<p>子元素高度不确定，无法计算得到</p>
+<li><h4 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a><strong>垂直居中</strong></h4><p>条件：父元素是盒子容器；父元素高度确定</p>
+<h5 id="1-行内元素垂直居中"><a href="#1-行内元素垂直居中" class="headerlink" title="(1)行内元素垂直居中"></a>(1)行内元素垂直居中</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;height: 300px; line-height: 300px;&#125;  //通过设定父元素的line-height为其高度来使得子元素垂直居中</span><br></pre></td></tr></table></figure>
+<h5 id="2-块级元素垂直居中（定高）"><a href="#2-块级元素垂直居中（定高）" class="headerlink" title="(2)块级元素垂直居中（定高）"></a>(2)块级元素垂直居中（定高）</h5><p>计算子元素的margin-top或margin-bottom，计算方法为父(元素高度-子元素高度)/2</p>
+<h5 id="3-块级元素垂直居中（不定高）"><a href="#3-块级元素垂直居中（不定高）" class="headerlink" title="(3)块级元素垂直居中（不定高）"></a>(3)块级元素垂直居中（不定高）</h5><p>子元素高度不确定，无法计算得到</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;<span class="attribute">display</span>: table-cell; <span class="attribute">vertical-align</span>: middle;&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>水平垂直居中</strong></p>
-<p>(1)水平对齐+行高</p>
-<p>text-align + line-height 实现单行元素水平垂直居中</p>
+<li><h4 id="水平垂直居中"><a href="#水平垂直居中" class="headerlink" title="水平垂直居中"></a><strong>水平垂直居中</strong></h4><h5 id="1-水平对齐-行高"><a href="#1-水平对齐-行高" class="headerlink" title="(1)水平对齐+行高"></a>(1)水平对齐+行高</h5><p>text-align + line-height 实现单行元素水平垂直居中</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.child</span>&#123;<span class="attribute">text-align</span>: center; <span class="attribute">line-height</span>: <span class="number">100px</span>;&#125;</span><br></pre></td></tr></table></figure>
-<p>(2)水平+垂直对齐</p>
-<p>text-align + vertical-align 在父元素设置text-align和vertical-align，并将父元素设置为table-cell元素，子元素设置为inline-block元素</p>
+<h5 id="2-水平-垂直对齐"><a href="#2-水平-垂直对齐" class="headerlink" title="(2)水平+垂直对齐"></a>(2)水平+垂直对齐</h5><p>text-align + vertical-align 在父元素设置text-align和vertical-align，并将父元素设置为table-cell元素，子元素设置为inline-block元素</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(3)相对+绝对定位</p>
-<p>使用absolute，利用绝对定位元素的盒模型特性，在偏移属性为确定值的基础上，设置margin:auto</p>
+<h5 id="3-相对-绝对定位"><a href="#3-相对-绝对定位" class="headerlink" title="(3)相对+绝对定位"></a>(3)相对+绝对定位</h5><p>使用absolute，利用绝对定位元素的盒模型特性，在偏移属性为确定值的基础上，设置margin:auto</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>(4)flex模型</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-flex模型"><a href="#4-flex模型" class="headerlink" title="(4)flex模型"></a>(4)flex模型</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>#### </p>
-</li>
-<li><h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><p><img src="https://images2018.cnblogs.com/blog/1047894/201803/1047894-20180301063419313-637038703.png" alt="img"></p>
+<h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p><img src="https://images2018.cnblogs.com/blog/1047894/201803/1047894-20180301063419313-637038703.png" alt="img"></p>
 <ol>
-<li><p><strong>一列布局</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin</span> : 0 <span class="selector-tag">auto</span></span><br></pre></td></tr></table></figure>
+<li><h4 id="一列布局"><a href="#一列布局" class="headerlink" title="一列布局"></a><strong>一列布局</strong></h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin</span> : 0 <span class="selector-tag">auto</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>两列布局</strong></p>
-<p>​     两栏布局的七种方法。其中有老生常谈的<code>float</code>方法,BFC方法，也有CSS3的<code>flex</code>布局与<code>grid</code>布局。并非所有的布局都会在开发中使用，但是其中也会涉及一些知识点。详解可以查看<a href="https://segmentfault.com/a/1190000010698609#articleHeader0" target="_blank" rel="noopener">这里</a></p>
+<li><h4 id="两列布局"><a href="#两列布局" class="headerlink" title="两列布局"></a><strong>两列布局</strong></h4><p>​     两栏布局的七种方法。其中有老生常谈的<code>float</code>方法,BFC方法，也有CSS3的<code>flex</code>布局与<code>grid</code>布局。并非所有的布局都会在开发中使用，但是其中也会涉及一些知识点。详解可以查看<a href="https://segmentfault.com/a/1190000010698609#articleHeader0" target="_blank" rel="noopener">这里</a></p>
 <p>​    常用的宽度自适应的方法通常是利用了<code>block</code>水平的元素宽度能随父容器调节的流动特性。另外一种思路是利用CSS中的<code>calc()</code>方法来动态设定宽度。还有一种思路是，利用CSS中的新型布局<code>flex layout</code>与<code>grid layout</code>。</p>
-<p>(1)双 <code>inline-block</code>方案</p>
-<p>(2)双<code>float</code>方案</p>
-<p>(3)<code>float+margin-left</code>方案</p>
-<p>(4)使用<code>absolute+margin-left</code>方法</p>
-<p>(5)使用<code>float+BFC</code>方法</p>
-<p>(6)<code>flex</code>方案</p>
-<p>(7)<code>gird</code>方案</p>
+<h5 id="1-双-inline-block方案"><a href="#1-双-inline-block方案" class="headerlink" title="(1)双 inline-block方案"></a>(1)双 <code>inline-block</code>方案</h5><h5 id="2-双float方案"><a href="#2-双float方案" class="headerlink" title="(2)双float方案"></a>(2)双<code>float</code>方案</h5><h5 id="3-float-margin-left方案"><a href="#3-float-margin-left方案" class="headerlink" title="(3)float+margin-left方案"></a>(3)<code>float+margin-left</code>方案</h5><h5 id="4-使用absolute-margin-left方法"><a href="#4-使用absolute-margin-left方法" class="headerlink" title="(4)使用absolute+margin-left方法"></a>(4)使用<code>absolute+margin-left</code>方法</h5><h5 id="5-使用float-BFC方法"><a href="#5-使用float-BFC方法" class="headerlink" title="(5)使用float+BFC方法"></a>(5)使用<code>float+BFC</code>方法</h5><h5 id="6-flex方案"><a href="#6-flex方案" class="headerlink" title="(6)flex方案"></a>(6)<code>flex</code>方案</h5><h5 id="7-gird方案"><a href="#7-gird方案" class="headerlink" title="(7)gird方案"></a>(7)<code>gird</code>方案</h5></li>
+<li><h4 id="三列布局"><a href="#三列布局" class="headerlink" title="三列布局"></a><strong>三列布局</strong></h4><p>两侧定宽中间自适应</p>
+<h5 id="1-圣杯布局"><a href="#1-圣杯布局" class="headerlink" title="(1) 圣杯布局"></a>(1) 圣杯布局</h5><p>圣杯布局，为了中间div内容不被遮挡，将中间div设置了左右padding-left和padding-right后，将左右两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div</p>
+<h5 id="2-双飞翼布局"><a href="#2-双飞翼布局" class="headerlink" title="(2) 双飞翼布局"></a>(2) 双飞翼布局</h5><p>双飞翼布局，为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置。</p>
 </li>
-<li><p><strong>三列布局</strong></p>
-<p>两侧定宽中间自适应</p>
-<p>(1) 圣杯布局</p>
-<p>圣杯布局，为了中间div内容不被遮挡，将中间div设置了左右padding-left和padding-right后，将左右两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div</p>
-<p>(2) 双飞翼布局</p>
-<p>双飞翼布局，为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置。</p>
-</li>
-<li><p><strong>混合布局</strong></p>
-</li>
-</ol>
-</li>
+<li><h4 id="混合布局"><a href="#混合布局" class="headerlink" title="混合布局"></a><strong>混合布局</strong></h4></li>
 </ol>
 
       
