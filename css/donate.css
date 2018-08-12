@@ -67,7 +67,7 @@ a{
 }
 #donateBox li {
 	width: 74px;
-	/*float: left;*/
+	float: left;
 	float: right;
 	text-align: center;
 	border-left: 1px solid #ddd;
