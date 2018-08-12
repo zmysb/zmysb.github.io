@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第五章学习笔记：字体 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第五章学习笔记：字体</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第五章学习笔记：字体</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><p>CSS试图为所有字体问题提供一些解决机制，不过它不能提供一个全面的解决方案。CSS文字处理中最复杂的部分是字体系列（font-family）匹配和字体加粗（font-weight）匹配，其次是字体大小（font-size）计算。CSS与字体相关的方面还包括字体风格（如斜体）和字体变形（如小型大写字母）。字体样式的所有方面都集中到一个属性，即font，本章后面会讨论这个 属性。</p>
+<h2 id="字体系列"><a href="#字体系列" class="headerlink" title="字体系列"></a>字体系列</h2><p>除了特定字体（Times、Verdana或Arial等），CSS还定义了5种通用字体系列：</p>
+<ul>
+<li><p>Serif：</p>
+<p>字体成比例（字体中所有字符根据其大小不同有不同的宽度，如小写i和m有不同宽度），有衬线</p>
+</li>
+<li><p>Sans-serif：</p>
+<p>成比例，无衬线</p>
+</li>
+<li><p>Monospace</p>
+<p>不成比例（每个字符等宽），通常用于模拟打字机文本，可能有衬线也可能没有</p>
+</li>
+<li><p>Cursive</p>
+<p>模仿人手写体</p>
+</li>
+<li><p>Fantasy</p>
+<p>一些无法用任何特征来定义的字体，但无法归入上列4种</p>
+</li>
+</ul>
+<p>可以使用属性font-family在文档中采用上述任何字体系列</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>font-family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[[<family-name> \</family-name></td>
+<td><generic-family>],]* [<family-name> \</family-name></generic-family></td>
+<td><generic-family>] \</generic-family></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>用户代理指定的值</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用通用字体系列"><a href="#使用通用字体系列" class="headerlink" title="使用通用字体系列"></a>使用通用字体系列</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">body &#123;font-family: sans-serif;&#125;    //从sans-serif字体系列选择一个字体应用到body</span><br></pre></td></tr></table></figure>
+<h3 id="指定字体系列"><a href="#指定字体系列" class="headerlink" title="指定字体系列"></a>指定字体系列</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h1 &#123;font-family: Georgia;&#125;    //使用Georgia应用在h1上</span><br></pre></td></tr></table></figure>
+<p>如果Georigia字体不可用，则使用另外一种serif字体。强烈建议在所有font-family规则中都提供一个通用字体系列</p>
+<h2 id="字体加粗"><a href="#字体加粗" class="headerlink" title="字体加粗"></a>字体加粗</h2><p>利用font-weight属性，CSS允许对字体加粗有更多控制</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>font-weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>normal \</td>
+<td>bold \</td>
+<td>bolder \</td>
+<td>lighter \</td>
+<td>100 \</td>
+<td>200 \</td>
+<td>300 \</td>
+<td>400 \</td>
+<td>500 \</td>
+<td>600 \</td>
+<td>700 \</td>
+<td>800 \</td>
+<td>900 \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>数字值（如100等等），或某个数字值加上某个相对数（bolder或lighter）</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">b</span> &#123;<span class="attribute">font-weight</span>: bold;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="加粗如何起作用"><a href="#加粗如何起作用" class="headerlink" title="加粗如何起作用"></a>加粗如何起作用</h3><p>关键字100～900与一个字体内置的加粗级别：100对应最细的字体变形，900对应最粗的字体变形</p>
+<p>如果给定的字体系列中定义的加粗度少于9种，用户代理需要以一种预定方式填补这些“空白”：</p>
+<ul>
+<li>如果未指定值500的加粗度，其字体加粗度与400的相应加粗相同</li>
+<li>如果未指定值300的加粗度，则为之指定一个比400更细的变形。如果没有更细的变形，为300指定的变形等同于400的相应变形，通常为normal或medium。这种方法同样适用于200和100</li>
+<li>如果未指定值600的加粗度，则为之指定一个比400更粗的变形。如果没有更粗的变形，为600指定的变形等同于500的相应变形。这种方法同样适用于900、800和700</li>
+</ul>
+<p>如Times的一种缩减版本，只含两种加粗变形：</p>
+<table>
+<thead>
+<tr>
+<th>字体</th>
+<th>指定的关键字</th>
+<th>指定的数字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TimesRegular</td>
+<td>normal</td>
+<td>100,200,300,400,500</td>
+</tr>
+<tr>
+<td>TimesBold</td>
+<td>bold</td>
+<td>600,700,800,900</td>
+</tr>
+</tbody>
+</table>
+<h3 id="让字体更粗"><a href="#让字体更粗" class="headerlink" title="让字体更粗"></a>让字体更粗</h3><p><strong>加粗上移</strong>：</p>
+<p>若给一个元素的加粗设置为bolder，用户代理先确定其从父元素继承的font-weight值。然后选择一个数，比继承值更粗的一个字体加粗值，并且在满足条件的所有数中，选择最小那个数。若没有可用的变形字体，把该元素的加粗值设置为下一个个更大的数字值，若900不变。</p>
+<h3 id="让字体更细"><a href="#让字体更细" class="headerlink" title="让字体更细"></a>让字体更细</h3><p><strong>加粗下移</strong>：</p>
+<p>与加粗上移同理反向</p>
+<h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>font-size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>xx-small \</td>
+<td>x-small \</td>
+<td>small \</td>
+<td>medium \</td>
+<td>large \</td>
+<td>x-large \</td>
+<td>xx-large \</td>
+<td>smaller \</td>
+<td>larger \</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>medium</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>根据父元素的字体大小来计算</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>数字值（如100等等），或某个数字值加上某个相对数（bolder或lighter）</td>
+</tr>
+</tbody>
+</table>
+<p>与font-weight关键字bolder和lighter的方式类似，属性font-size也有两个相对大小关键字：larger和smaller。类似于相对字体加粗，这些关键字会导致font-size的计算址上移或下移。首先了解一下如何确定字体大小：</p>
+<p>实际上font-size属性和你看到的实际字体大小之间的具体关系由字体设计者决定，这种关系设置为字体本身中有一个em方框。它指示没有额外行间距（CSS中的line-height）设置字体时基线间的距离（字体的字符可能比其高／低／相等）。font-size的作用是为给定字体的em框提供一个大小，不保证实际显示的字符就是这个大小</p>
+<h3 id="绝对大小"><a href="#绝对大小" class="headerlink" title="绝对大小"></a>绝对大小</h3><p>font-size有七个绝对大小关键字：xx-small、x-small、small、medium、large、x-large、xx-large。没有明确的定义，只有相对的定义。</p>
+<p>根据CSS1规范，一个绝对大小与下一个绝对大小之间的差别（或缩放因子）应当是向上1.5，或向下0.66（不同用户代理的缩放因子可能不同；CSS2中缩放因子可能介于1.0～1.2之间）</p>
+<p>假设medium等于16px，对于不同缩放因子，绝对大小如下：</p>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>缩放1.5</th>
+<th>缩放1.2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xx-small</td>
+<td>5px</td>
+<td>9px</td>
+</tr>
+<tr>
+<td>x-small</td>
+<td>7px</td>
+<td>11px</td>
+</tr>
+<tr>
+<td>small</td>
+<td>11px</td>
+<td>13px</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>16px</td>
+<td>16px</td>
+</tr>
+<tr>
+<td>large</td>
+<td>24px</td>
+<td>19px</td>
+</tr>
+<tr>
+<td>x-large</td>
+<td>36px</td>
+<td>23px</td>
+</tr>
+<tr>
+<td>xx-large</td>
+<td>54px</td>
+<td>28px</td>
+</tr>
+</tbody>
+</table>
+<h3 id="相对大小"><a href="#相对大小" class="headerlink" title="相对大小"></a>相对大小</h3><p>font-size有两个相对大小关键字：larger和smaller，使元素大小相对于其父元素的大小在绝对大小梯度上进行上移和下移，使用计算绝对大小时采用的缩放因子</p>
+<p>不同于加粗的相对值，相对大小值不必限制在绝对大小范围内（可以超过xx-large和小于xx-small）</p>
+<h3 id="百分数和大小"><a href="#百分数和大小" class="headerlink" title="百分数和大小"></a>百分数和大小</h3><p>和相对大小关键字很相似。总是根据从父元素继承的大小来计算。不同于相对大小关键字的是，百分数允许对计算大小有更细的控制</p>
+<h3 id="字体大小和继承"><a href="#字体大小和继承" class="headerlink" title="字体大小和继承"></a>字体大小和继承</h3><p>尽管CSS中font-size是可以继承的，但继承的是计算值而不是百分数（步步计算取整），例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>this text contain both<span class="tag">&lt;<span class="name">em</span>&gt;</span>emphasis and<span class="tag">&lt;<span class="name">strong</span>&gt;</span>strong emphasis<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font</span>:size: <span class="number">12px</span>;&#125;</span><br><span class="line">em &#123;font-size: 120%;&#125;    //12*120%=14.4px</span><br><span class="line">strong &#123;font-size: 135%;&#125;    //14.4*135%=19.44px</span><br></pre></td></tr></table></figure>
+<p>可能造成问题：缩放失控（取整错误累计）。多级嵌套的元素难以阅读</p>
+<h3 id="使用长度单位"><a href="#使用长度单位" class="headerlink" title="使用长度单位"></a>使用长度单位</h3><p>可以使用章4讨论的任何长度值来设置font-size，以下所有font-size声明等价：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-class">.one</span> &#123;<span class="attribute">font-size</span>: <span class="number">36pt</span>;&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.two</span> &#123;<span class="attribute">font-size</span>: <span class="number">3pc</span>;&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.three</span> &#123;<span class="attribute">font-size</span>: <span class="number">0.5in</span>;&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.four</span> &#123;<span class="attribute">font-size</span>: <span class="number">1.27cm</span>;&#125;</span><br><span class="line"><span class="selector-tag">p</span><span class="selector-class">.five</span> &#123;<span class="attribute">font-size</span>: <span class="number">12.7mm</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>不同操作系统作用于不同分辨率的显示媒体上，显示结果与现实可能不能完全匹配（p.three可能不为半英寸），但度量彼此之间是一致的</p>
+<p>由于这些差别，创作人员选择像素指定字体大小。如果界面上既有文本又有图像，就很适合采用这种方法。缺点是ie6之前不允许用户轻松调整用像素设置的文本大小（其他浏览器包括ie7支持）。因此使用像素来设置文本大小同其他方式一样，无法保证总有同样的大小。本章讨论的其他方法（如关键字和百分数）都更为健壮，可以用这些方法在用户默认字体大小的基础上缩放文本</p>
+<h2 id="风格和变形"><a href="#风格和变形" class="headerlink" title="风格和变形"></a>风格和变形</h2><p>font-style和font-variant</p>
+<h3 id="有风格的字体"><a href="#有风格的字体" class="headerlink" title="有风格的字体"></a>有风格的字体</h3><p>font-style用于在normal文本、italic文本和oblique文本之间进行选择</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>font-style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>italic \</td>
+<td>oblique \</td>
+<td>normal \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>斜体（italic）是一种单独的字体风格，对字母的结构有所改动</p>
+<p>倾斜（oblique）文本则是正常竖直（normal）的一个倾斜版本</p>
+<h3 id="字体变形"><a href="#字体变形" class="headerlink" title="字体变形"></a>字体变形</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>font-variant</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>small-caps \</td>
+<td>normal \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>font-variant只有两个非继承值：默认值normal和small-caps，small-caps要求使用小型大写字母文本。</p>
+<h2 id="拉伸和调整字体"><a href="#拉伸和调整字体" class="headerlink" title="拉伸和调整字体"></a>拉伸和调整字体</h2><p>font-stretch和font-size-adjust，目前少有浏览器支持，了解</p>
+<h2 id="font属性"><a href="#font属性" class="headerlink" title="font属性"></a>font属性</h2><p>font属性是涵盖所有其他字体属性（以及少数其他内容）的一个简写属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>font</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <font-style> \</font-style></td>
+<td>\</td>
+<td><font-variant> \</font-variant></td>
+<td>\</td>
+<td><font-weight> ]?<font-size> [ /<line-height> ]?<font-family> ] \</font-family></line-height></font-size></font-weight></td>
+<td>caption \</td>
+<td>icon \</td>
+<td>menu \</td>
+<td>message-box \</td>
+<td>small-caption \</td>
+<td>status-bar \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>根据单个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>对于<font-size>要对于父元素计算；对于<line-height>则相对于元素的<font-size>计算</font-size></line-height></font-size></td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见单个属性（font-style等）</td>
+</tr>
+</tbody>
+</table>
+<p>前三个值允许采用任意的顺序出现，后两个更为严格，必须在font声明中出现且按这个顺序</p>
+<h3 id="增加行高"><a href="#增加行高" class="headerlink" title="增加行高"></a>增加行高</h3><p>font还可以设置line-height，尽管它不是字体属性而是一个文本属性。它是对font-size值的一个补充，并用一个斜线（／）与之分隔</p>
+<h3 id="适当地使用简写"><a href="#适当地使用简写" class="headerlink" title="适当地使用简写"></a>适当地使用简写</h3><p>使用font简写时，所有被忽略的值都会被重置为其默认值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span> &#123;<span class="attribute">font</span>: italic small-caps <span class="number">250%</span> sans-serif;&#125;</span><br><span class="line">h2 &#123;font: 200% sans-serif;&#125;    //h2不会有斜体和小型大写字母效果</span><br></pre></td></tr></table></figure>
+<h3 id="使用系统字体"><a href="#使用系统字体" class="headerlink" title="使用系统字体"></a>使用系统字体</h3><p>一些值是Web页面结合用户操作系统的设置，font的系统字体值很方便。这些址取得操作系统的字体大小、字体系列、字体加粗、字体风格和字体变形，并将其应用到一个元素。这些值如下：</p>
+<ul>
+<li><p>caption</p>
+<p>用于有标题的控件，如按钮</p>
+</li>
+<li><p>icon</p>
+<p>用于对图标加标签</p>
+</li>
+<li><p>menu</p>
+<p>用于菜单，即下拉菜单的菜单列表</p>
+</li>
+<li><p>messege-box</p>
+<p>用于对话框</p>
+</li>
+<li><p>small-caption</p>
+<p>用于对小控件加标签</p>
+</li>
+<li><p>status-bar</p>
+<p>用于窗口状态条</p>
+</li>
+</ul>
+<p>例 你想把一个按钮的字体设置为与操作系统中的按钮字体完全相同：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span> &#123;<span class="attribute">font</span>: caption;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字体匹配"><a href="#字体匹配" class="headerlink" title="字体匹配"></a>字体匹配</h2><p>CSS允许匹配字体系列、加粗和变形，都是通过字体匹配完成的，接下来介绍字体匹配如何工作的 P132暂留</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>尽管创作人员不能指望文档中一定使用某个特定的字体，不过可以很容易地指定通用字体系列，且这种行为得到了很好的支持。对于字体管理的其他方面，相应的支持程度则有所不同。一般已经能很好的改变字体大小，对创作人员来说，让人困惑的往往不是以何种方式支持大小调整，而是想用的一些单位（点）在不同媒体上得到的结果往往差异很大，甚至在不同的用户代理和操作系统上也得到不同结果。在Web设计中使用长度单位通常不是一个好主意。百分数、em、ex单位往往更适合修改字体大小，因为这些单位在所有常用显示环境中能很好地缩放</p>
+<p>为文本指定样式还有很多不涉及到字体的属性，这是下一章要讲的内容</p>
+</div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a><a class="next" href="/2018/08/12/【CSS权威指南】第四章学习笔记：值和单位/">【CSS权威指南】第四章学习笔记：值和单位</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

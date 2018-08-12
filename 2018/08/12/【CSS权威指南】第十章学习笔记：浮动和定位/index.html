@@ -1,0 +1,423 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第十章学习笔记：浮动和定位 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第十章学习笔记：浮动和定位</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第十章学习笔记：浮动和定位</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><p>通过字体改变、背景和所有其他属性，CSS能让内容看上去不错，不过CSS在完成基本布局任务方面怎么样呢？接下来看浮动和定位。</p>
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><p>过去，只能浮动图像。但CSS允许浮动任何元素，从图像到段落再到列表，所有元素都可以浮动</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>float</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>left \</td>
+<td>right \</td>
+<td>none \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="浮动元素"><a href="#浮动元素" class="headerlink" title="浮动元素"></a>浮动元素</h3><p>对于浮动元素，有几点要记住。首先会以某种方式将浮动元素从文档的正常流中删除，不过它还是会影响布局。要浮动一个非替换元素，必须为该元素申明一个width。浮动元素的外边距并不会合并</p>
+<h4 id="不浮动"><a href="#不浮动" class="headerlink" title="不浮动"></a>不浮动</h4><p>float: none用于防止元素浮动</p>
+<h3 id="浮动的详细内幕"><a href="#浮动的详细内幕" class="headerlink" title="浮动的详细内幕"></a>浮动的详细内幕</h3><p>深入讨论浮动的详细内容之前，首先建立包含块（containning block）的概念。浮动元素的包含块是其最近的块级祖先元素。浮动元素会生成一个块级框，不论这个元素本身是什么</p>
+<p>控制浮动元素摆放的特定规则：</p>
+<ol>
+<li>浮动元素的左（右）外边界不能超出其包含块的左（右）内边界</li>
+<li>浮动元素的左（右）外边界必须是原文档中之前出现的左（右）浮动元素的右（左）外边界，除非后出现的浮动元素的顶端在先出现浮动元素的底端下面</li>
+<li>左浮动元素的右外边界不会在其右边右浮动元素的左外边界的右边。一个右浮动元素的左外边界不会在其左边左浮动元素的右外边界的左边</li>
+<li>一个浮动元素的顶端不能比其父元素的内顶端更高。如果一个浮动元素在两个合并外边距之间，放置这个浮动元素时就好像在两个元素中间有一个块级父元素</li>
+<li>浮动元素的顶端不能比之前所有浮动元素或块级元素的顶端更高</li>
+<li>如果一源文档中一个浮动元素之前出现另一个浮动元素，浮动元素的顶端不能比包含该元素生成框的任何行框的顶端更高</li>
+<li>左（右）浮动元素的左（右）边有一个浮动元素，前者的右外边界不能在其包含块的右（左）边界的右边（左边）</li>
+<li>浮动元素必须尽可能高地放置</li>
+<li>左浮动元素必须向左尽可能远，右浮动元素则必须向右尽可能远。位置越高，就会向右或向左浮动得越远</li>
+</ol>
+<h3 id="实用行为"><a href="#实用行为" class="headerlink" title="实用行为"></a>实用行为</h3><p>当浮动元素超出其父元素的底端：浮动元素的延伸问题。通过将父元素设置为浮动元素，就可以把浮动元素包含在其 父元素内。</p>
+<h4 id="负外边距"><a href="#负外边距" class="headerlink" title="负外边距"></a>负外边距</h4><p>有意思的是，负元外边可能导致浮动元素移到其父元素内边距外边。</p>
+<h3 id="浮动元素、内容和重叠"><a href="#浮动元素、内容和重叠" class="headerlink" title="浮动元素、内容和重叠"></a>浮动元素、内容和重叠</h3><p>如果一个浮动元素与正常流中的内容发生重叠会怎么样呢？</p>
+<ul>
+<li>行内框与一个浮动元素重叠时，其边框、背景、内容都在该浮动元素“之上”显示</li>
+<li>块框与一个浮动元素重叠时，其块框和背景在该浮动元素“之下”显示，而内容在浮动元素“之上”显示</li>
+</ul>
+<h3 id="清除"><a href="#清除" class="headerlink" title="清除"></a>清除</h3><p>并不总是希望内容流过浮动元素流过浮动元素，可以利用clear属性完成，设置一个元素禁止浮动元素出现在它旁边</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>clear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>left \</td>
+<td>right \</td>
+<td>both \</td>
+<td>none \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h3</span> &#123;<span class="attribute">clear</span>: both;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>利用定位可以准确地定义元素框相对于其正常位置应该出现在哪里，或者相对于父元素、另一个元素甚至相对于浏览器窗口本身的位置</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="定位的类型"><a href="#定位的类型" class="headerlink" title="定位的类型"></a>定位的类型</h4><p>通过使用position属性，可以选择4种不同类型的定位，这会影响元素生成的方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>static \</td>
+<td>relative \</td>
+<td>absolute \</td>
+<td>fixed \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>static</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>position值的含义：</p>
+<ul>
+<li><p>static</p>
+<p>元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分。行内元素创建一个或多个行框，置于其父元素中</p>
+</li>
+<li><p>relative</p>
+<p>元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留</p>
+</li>
+<li><p>absolute</p>
+<p>元素框从文档流完全删除，并相对于其包含块定位，包含块可能是文档中的另一个元素或者是初始包含块（见下一节的介绍）。元素原先在正常文档流中所占的空间会关闭，就好像该元素原来不存在一样。元素定位后生成一个块级框，不论其原来在正常流中是何种类型</p>
+</li>
+<li><p>fixed</p>
+<p>元素框的表现类似于将position设置为absolute，不过其包含块是视窗本身</p>
+</li>
+</ul>
+<h4 id="包含块"><a href="#包含块" class="headerlink" title="包含块"></a>包含块</h4><p>本章较早前讨论过浮动元素的包含块，其包含块定义是最近的块级祖先元素。对于定位，情况就没有这么简单：</p>
+<ul>
+<li>“根元素”的包含块（也称初始包含块）由用户代理建立。在HTML中，根元素就是html元素。在大多数浏览器中，初始包含块是一个视窗大小的矩形</li>
+<li>非根元素，如果其position值是relative或static，其包含块由最近的块级框、表单元格或行内块祖先框的内容边界构成</li>
+<li>非根元素，如果其position值是absolute，包含块设置为最近的position值不是static的祖先元素（可以是任何类型）</li>
+</ul>
+<p>“包含块”一词实际上是“定位上下文”</p>
+<h4 id="偏移属性"><a href="#偏移属性" class="headerlink" title="偏移属性"></a>偏移属性</h4><p>上一节的三种定位机制（relative、absolute和fixed）使用了4个属性来描述定位元素相各边相对于其包含块的偏移，称为偏移属性：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>top、right、bottom、left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>auto</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>定位元素（也就是position值不是static的元素）</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>对于top和bottom，相对于包含块的高度；对于right和left，相对于包含块的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于相对定位元素，见以下说明；对于static元素为auto；对于长度值，是相应的绝对长度；对于百分数值，则为指定的值；否则为auto</td>
+</tr>
+<tr>
+<td style="text-align:center">说明：</td>
+<td>计算值取决于一系列因素；见附录A中的相关例子</td>
+</tr>
+</tbody>
+</table>
+<p>正值会导致向内偏移，使边界朝着包含块的中心移动，而负值会导致向外偏移</p>
+<h3 id="宽度和高度"><a href="#宽度和高度" class="headerlink" title="宽度和高度"></a>宽度和高度</h3><h4 id="设置宽度和高度"><a href="#设置宽度和高度" class="headerlink" title="设置宽度和高度"></a>设置宽度和高度</h4><p>尽管有时候设置一个元素的宽高很重要，但对于定位元素却不一定，例一个绝对定位元素从上到下填充其包含块的左半部分：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就像使用了width: 50%; height: 100%;</p>
+<h4 id="限制宽度和高度"><a href="#限制宽度和高度" class="headerlink" title="限制宽度和高度"></a>限制宽度和高度</h4><p>若有必要或需要，可以对元素宽高进行一些限制，利用最小最大属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>min-width、min-height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>0</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>除了非替换行内元素和表元素以外的所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于百分数，根据指定确定；对于长度值，则为绝对长度；否则，为none</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>max-width、max-height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>0</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>除了非替换行内元素和表元素以外的所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于百分数，根据指定确定；对于长度值，则为绝对长度；否则，为none</td>
+</tr>
+</tbody>
+</table>
+<p>【这些属性值不能为负】</p>
+<h3 id="内容溢出和剪裁"><a href="#内容溢出和剪裁" class="headerlink" title="内容溢出和剪裁"></a>内容溢出和剪裁</h3><p>如果一个元素内容对于元素来说过大，就可能溢出元素本身，CSS2允许你从中选择，还允许定义一个裁剪区域</p>
+<h4 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h4><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>overflow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>visible \</td>
+<td>hidden \</td>
+<td>scroll \</td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>visible</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素和替换元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>如果overflow设置为scroll，元素会在元素框边界处剪裁。。</p>
+<h4 id="内容裁剪"><a href="#内容裁剪" class="headerlink" title="内容裁剪"></a>内容裁剪</h4><p>如果一个绝对定位元素的内容溢出其内容框，而且overflow设置为要求裁剪该内容，通过属性clip可以改变裁剪区域的形状</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>clip</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>rect(top, right,bottom,left) \</td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>auto</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>绝对定位元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于矩形，4个计算长度表示裁剪矩形区域的4个边；否则，根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>（。。。）</p>
+<h3 id="元素可见性"><a href="#元素可见性" class="headerlink" title="元素可见性"></a>元素可见性</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>visibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>visible \</td>
+<td>hidden \</td>
+<td>collapse \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>visible</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="绝对定位"><a href="#绝对定位" class="headerlink" title="绝对定位"></a>绝对定位</h3><h4 id="包含块和绝对定位元素"><a href="#包含块和绝对定位元素" class="headerlink" title="包含块和绝对定位元素"></a>包含块和绝对定位元素</h4><p>元素绝对定位时，会从文档流中完全删除。然后相对于其包含块定位，其边界根据偏移属性（top、left等）放置。定位元素不会流入其他元素的内容，反之亦然。这说明定位元素可能覆盖其他元素或者被其他元素覆盖（本章后面讲到覆盖顺序的改变）</p>
+<p>绝对定位元素的包含块是最近的position值不为static的祖先元素。创作人员通常会选择一个元素作为绝对定位元素的包含块，将其position指定为relative而且没有偏移</p>
+<h4 id="绝对定位元素的放置和大小"><a href="#绝对定位元素的放置和大小" class="headerlink" title="绝对定位元素的放置和大小"></a>绝对定位元素的放置和大小</h4><p>4个偏移属性均指定时，元素框的宽高均由此放置绝对，若再显示设置宽高，下一节将介绍如何处理</p>
+<h4 id="自动边偏移"><a href="#自动边偏移" class="headerlink" title="自动边偏移"></a>自动边偏移</h4><p>绝对定位一个元素时，偏移属性未指定的，与其“静态”位置一致。这种情况下通常对定位元素的尺寸没有什么限制，假设有一些限制的话下一节介绍如何处理</p>
+<h4 id="非替换元素的放置和大小"><a href="#非替换元素的放置和大小" class="headerlink" title="非替换元素的放置和大小"></a>非替换元素的放置和大小</h4><p>一般地，元素的大小和位置取决于其包含块。各个属性（width、right、padding-left等）的值也会有一些影响，不过最主要的还是其包含块</p>
+<p>绝对定位元素会“恰当收放”以满足垂直或水平方向上各属性值和为包含块的width。在水平／垂直过度受限的情况下忽略“right”／“bottom”的值</p>
+<h4 id="替换元素的放置和大小"><a href="#替换元素的放置和大小" class="headerlink" title="替换元素的放置和大小"></a>替换元素的放置和大小</h4><p>替换元素和非替换元素的定位规则大不相同。因为其有固定的高宽，没有“恰当收放”行为的概念。确定替换元素的位置和大小，涉及到的行为规则：</p>
+<ul>
+<li></li>
+<li>u</li>
+<li></li>
+</ul>
+<h4 id="z轴上的放置"><a href="#z轴上的放置" class="headerlink" title="z轴上的放置"></a>z轴上的放置</h4><p>对于所有定位，最后都不免遇到这样一种情况：两个元素视图放在同一个位置上，使用z-index属性控制谁在“上层”</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>visibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><integer> \</integer></td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>auto</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>有较高z-index值的元素离读者更近。所有整数都可以作为z-index的值，包括负数</p>
+<h3 id="固定定位"><a href="#固定定位" class="headerlink" title="固定定位"></a>固定定位</h3><p>从上一节可知，固定定位与绝对定位很类似，不过固定定位的包含块时视窗。固定定位时，元素会从文档流中去除，不会有相对于文档中任何部分的位置</p>
+<h3 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h3><p>理解起来相对简单的定位机制是相对定位。采用这种机制是，将通过使用偏移属性移动定位元素</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2></div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a><a class="next" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

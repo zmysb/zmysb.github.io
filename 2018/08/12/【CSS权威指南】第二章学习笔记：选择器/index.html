@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第二章学习笔记：选择器 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第二章学习笔记：选择器</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第二章学习笔记：选择器</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><h2 id="基本规则"><a href="#基本规则" class="headerlink" title="基本规则"></a>基本规则</h2><p>例 为了使所有h2显示为灰色，没有CSS的情况，需要给每一个h2元素插入font元素：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"gray"</span>&gt;</span>This is h2 text<span class="tag">&lt;<span class="name">font</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>利用CSS规则：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span>  &#123;<span class="attribute">color</span>: gray;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="规则结构-声明-关键字"><a href="#规则结构-声明-关键字" class="headerlink" title="规则结构 声明 关键字"></a>规则结构 声明 关键字</h3><p>规则的结构：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择器  &#123;声明块&#125;</span><br></pre></td></tr></table></figure>
+<p>声明块由一个或多个声明构成，声明的结构：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">属性: 值;</span><br></pre></td></tr></table></figure>
+<p>几乎在所有情况下，值要么是一个关键字，要么是该属性可取关键字的一个列表（包含一个或多个关键字），关键字之间用空格分隔</p>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><p>选择器分组：为多个元素应用同一个声明</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span> ,<span class="selector-tag">h3</span> &#123;<span class="attribute">color</span>: gray;&#125;</span><br></pre></td></tr></table></figure>
+<p>声明分组：为元素一次应用多个声明</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">18px</span> Helvetica;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结合两种分组</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span> ,<span class="selector-tag">h3</span> &#123; </span><br><span class="line">    <span class="attribute">color</span>: gray;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">18px</span> Helvetica; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><p>选择器直接指示文档元素：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>: gray;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类选择器和ID选择器"><a href="#类选择器和ID选择器" class="headerlink" title="类选择器和ID选择器"></a>类选择器和ID选择器</h2><p>独立于元素进行选择，实际是对具体属性（class/id）的属性值进行选择</p>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><p>类选择器使用“.”引用元素class属性中的值</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"warning"</span>&gt;</span>the possibility of implosion is very real!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>the possibility of <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"warning"</span>&gt;</span>implosion<span class="tag">&lt;/<span class="name">span</span>&gt;</span> is very real!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.warning &#123;color: red;&#125;   //class属性值包含warning的元素字体为红</span><br><span class="line">p.warning &#123;font-weight: bold;&#125;    //class属性值包含warning的p元素字体加粗</span><br></pre></td></tr></table></figure>
+<h3 id="多类选择器"><a href="#多类选择器" class="headerlink" title="多类选择器"></a>多类选择器</h3><p>class值包含一个词列表，类选择器也可链接多个（顺序不限制），意为class中同时包含链接词的元素</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.warning.help &#123;color: red;&#125;    //class值同时包含warning和help的元素前景色为红色</span><br></pre></td></tr></table></figure>
+<h3 id="ID选择器"><a href="#ID选择器" class="headerlink" title="ID选择器"></a>ID选择器</h3><p>类选择器使用“#”引用元素id属性中的值</p>
+<h3 id="类选择器还是ID选择器"><a href="#类选择器还是ID选择器" class="headerlink" title="类选择器还是ID选择器"></a>类选择器还是ID选择器</h3><table>
+<thead>
+<tr>
+<th>类选择器</th>
+<th>ID选择器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多个元素指定为同一类且文档可含多个</td>
+<td>指定一个元素且一个文档只使用一次</td>
+</tr>
+<tr>
+<td>可以链接使用</td>
+<td>不可以链接使用（id属性不支持词列表）</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><p>独立于元素进行选择，对属性及属性值进行选择</p>
+<h3 id="简单属性选择"><a href="#简单属性选择" class="headerlink" title="简单属性选择"></a>简单属性选择</h3><p>选择包含某个属性的元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[title]</span> &#123;<span class="attribute">bolder</span>: <span class="number">3px</span> solid red;&#125;</span><br><span class="line"><span class="selector-tag">img</span><span class="selector-attr">[alt]</span> &#123;<span class="attribute">bolder</span>: black;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span><span class="selector-attr">[title]</span> &#123;<span class="attribute">font-weight</span>: bold;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="根据具体属性值选择"><a href="#根据具体属性值选择" class="headerlink" title="根据具体属性值选择"></a>根据具体属性值选择</h3><p>选择包含某个具体属性值的元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[class="warning"]</span> &#123;<span class="attribute">font-weight</span>: bold;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="根据部分属性值选择"><a href="#根据部分属性值选择" class="headerlink" title="根据部分属性值选择"></a>根据部分属性值选择</h3><p>如果属性能接受词列表（词之间用空格分隔），可以根据其中任意一个词进行选择</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-attr">[class～="warning"]</span> &#123;<span class="attribute">font-weight</span>: bold;&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[foo~=”bar”]</td>
+<td>选择foo属性值包含“bar”的所有元素</td>
+</tr>
+<tr>
+<td>[foo^=”bar”]</td>
+<td>选择foo属性值以“bar”开头的所有元素</td>
+</tr>
+<tr>
+<td>[foo$=”bar”]</td>
+<td>选择foo属性值以“bar”结尾的所有元素</td>
+</tr>
+<tr>
+<td>[foo*=”bar”]</td>
+<td>选择foo属性值包含子串“bar”的所有元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="特定属性选择"><a href="#特定属性选择" class="headerlink" title="特定属性选择"></a>特定属性选择</h3><p>一般的，[att|=”val”]可以用于任何属性及其值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*<span class="selector-attr">[lang|="en"]</span> &#123;<span class="attribute">color</span>: red;&#125;</span><br></pre></td></tr></table></figure>
+<p>最常见用语匹配语言值，本章后面还会介绍</p>
+<h2 id="使用文档结构"><a href="#使用文档结构" class="headerlink" title="使用文档结构"></a>使用文档结构</h2><h3 id="理解父子结构"><a href="#理解父子结构" class="headerlink" title="理解父子结构"></a>理解父子结构</h3><p>父子结构是祖先-后代关系的特例</p>
+<h3 id="后代选择器（上下文选择器）"><a href="#后代选择器（上下文选择器）" class="headerlink" title="后代选择器（上下文选择器）"></a>后代选择器（上下文选择器）</h3><p>在后代选择器中，规则左边的选择器一端包含两个或多个用<strong>空格结合符</strong>分隔的左到右有祖先-后代关系的选择器</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h1 em &#123;color: red;&#125;    //h1元素的所有子孙em元素</span><br></pre></td></tr></table></figure>
+<h3 id="选择子元素"><a href="#选择子元素" class="headerlink" title="选择子元素"></a>选择子元素</h3><p>不希望选择任一一个后代，缩小范围只想选择一个元素的子元素，使用<strong>子结合符</strong>，即大于号（&gt;）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &gt; span &#123;color: red;&#125;    //p元素的所有儿子span元素</span><br></pre></td></tr></table></figure>
+<h3 id="选择相邻兄弟元素"><a href="#选择相邻兄弟元素" class="headerlink" title="选择相邻兄弟元素"></a>选择相邻兄弟元素</h3><p>想选择一个元素后紧接的兄弟元素，使用<strong>相邻兄弟结合符</strong>，即加号（+）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h1 + p &#123;color: red;&#125;     //h1后的所有p元素，且和h1元素同父元素</span><br></pre></td></tr></table></figure>
+<h2 id="伪类和伪元素"><a href="#伪类和伪元素" class="headerlink" title="伪类和伪元素"></a>伪类和伪元素</h2><p>伪元素为文档中“不一定存在的结构”指定样式</p>
+<p>伪类为某些元素（甚至文档本身）的状态所指示的幻想类指定样式</p>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><p>伪类选择器使用“:”引用元素伪类</p>
+<p>考虑锚元素（a），基本上有两种锚类型：已访问的和未访问的。这些类型称为伪类，使用这些伪类的选择器称为伪类选择器</p>
+<h4 id="链接伪类："><a href="#链接伪类：" class="headerlink" title="链接伪类："></a>链接伪类：</h4><table>
+<thead>
+<tr>
+<th>伪类名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:link</td>
+<td>指示作为超链接（即有一个href属性）并指向一个未访问地址的所有锚</td>
+</tr>
+<tr>
+<td>:visited</td>
+<td>指示作为已访问地址超链接的锚</td>
+</tr>
+</tbody>
+</table>
+<h4 id="动态伪类"><a href="#动态伪类" class="headerlink" title="动态伪类"></a>动态伪类</h4><table>
+<thead>
+<tr>
+<th>伪类名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:hover</td>
+<td>指示鼠标指针停留在哪个元素上</td>
+</tr>
+<tr>
+<td>:active</td>
+<td>指示被用户输入激活的元素</td>
+</tr>
+</tbody>
+</table>
+<p>动态伪类可能带来一些实际问题：引起文档重绘</p>
+<h4 id="选择第一个子元素"><a href="#选择第一个子元素" class="headerlink" title="选择第一个子元素"></a>选择第一个子元素</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p:fisrt-child &#123;color: red;&#125;    //作为第一个子元素的所有p元素（看起来像给这个p元素加上了一个名为“fisrt-child”的类）</span><br></pre></td></tr></table></figure>
+<h4 id="根据语言选择"><a href="#根据语言选择" class="headerlink" title="根据语言选择"></a>根据语言选择</h4><p>:lang()伪类选择器类似|=属性选择器，主要差别在于语言信息可以从很多来源得到，不一定只有lang属性中，伪类选择器更健壮</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:lang(fr) &#123;font-style: italic;&#125;    //选择语言为法语的元素</span><br></pre></td></tr></table></figure>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><p>就像伪类为锚指定幻想类一样，伪元素能够在文档中插入假想元素</p>
+<h4 id="设置首字母样式"><a href="#设置首字母样式" class="headerlink" title="设置首字母样式"></a>设置首字母样式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p:first-letter &#123;color: red;&#125;    //为所有p元素的第一个字母设为红色（看起来像为p元素内容的第一个字母套上了"&lt;first-letter&gt;"元素）</span><br></pre></td></tr></table></figure>
+<h4 id="设置第一行样式"><a href="#设置第一行样式" class="headerlink" title="设置第一行样式"></a>设置第一行样式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p:first-line &#123;color: red;&#125;    //为所有p元素的第一行设为红色（看起来像为p元素内容的第一个行套上了"&lt;first-line&gt;"元素）</span><br></pre></td></tr></table></figure>
+<h4 id="设置之前和之后的样式"><a href="#设置之前和之后的样式" class="headerlink" title="设置之前和之后的样式"></a>设置之前和之后的样式</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h2:before &#123;content: "&#125;"; color: silver&#125;    //在每个h2元素前加一个银色中括号</span><br><span class="line">body:after &#123;content: "The End.";&#125;    //给文档末尾加一个结束语</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>通过根据文档的内容来使用选择器，创作人员可以创建丰富的CSS规则。可以对少量元素或大量元素应用简单规则，还可以对规则和选择器分组使得样式表简洁灵活，缩短文件大小和下载时间</p>
+<p>要正确理解选择器以及如何组合选择器，需要深入地掌握选择器和文档结构的关系，并了解继承和层叠机制在确定如何为元素设置样式时有怎样的作用。这正是下一章要讨论的内容</p>
+</div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第三章学习笔记：结构和层叠/">【CSS权威指南】第三章学习笔记：结构和层叠</a><a class="next" href="/2018/08/12/【CSS权威指南】第一章学习笔记：CSS和文档/">【CSS权威指南】第一章学习笔记：CSS和文档</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

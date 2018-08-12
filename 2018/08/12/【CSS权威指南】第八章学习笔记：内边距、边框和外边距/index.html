@@ -1,0 +1,561 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第八章学习笔记：内边距、边框和外边距 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><h2 id="基本元素框"><a href="#基本元素框" class="headerlink" title="基本元素框"></a>基本元素框</h2><p>上一章曾讨论过，所有文元素都生成一个矩形框，这成为元素框。描述了一个元素在文档布局中所占的空间大小，影响着其他元素的框的形状和大小</p>
+<p>默认地，一个可以显示的文档由多个矩形框组成，这些矩形框分布开，从而不会相互重叠</p>
+<h3 id="宽度和高度"><a href="#宽度和高度" class="headerlink" title="宽度和高度"></a>宽度和高度</h3><p>一个元素的width被定义为从左侧内边距到右内边距的距离，height被定义为上内边界到下内边界的距离，但它们不能应用到行内非替换元素</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>auto</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素和替换元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的width</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于auto和百分数值，根据指定确定；否值是一个绝对长度，除非元素不能应用该属性（此时为auto）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>auto</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素和替换元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的height</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于auto和百分数值，根据指定确定；否值是一个绝对长度，除非元素不能应用该属性（此时为auto）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="外边距和内边距"><a href="#外边距和内边距" class="headerlink" title="外边距和内边距"></a>外边距和内边距</h3><p>元素框在元素之间只提供了很少的空间，有三种方法可以在元素周围生成额外的空间：</p>
+<ul>
+<li>增加内边距</li>
+<li>增加边框</li>
+<li>增加外边距</li>
+</ul>
+<p>接下来了解使用这些属性</p>
+<h2 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>margin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>auto ]{1,4} \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的width</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见各个属性</td>
+</tr>
+</tbody>
+</table>
+<h3 id="长度值和外边距"><a href="#长度值和外边距" class="headerlink" title="长度值和外边距"></a>长度值和外边距</h3><p>设置元素外边距时，可以使用任何长度值</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;<span class="attribute">margin</span>: <span class="number">2em</span>;&#125;</span><br><span class="line">h1 &#123;margin: 10px 15px 15px 5px;&#125;    //顺序是上右下左</span><br></pre></td></tr></table></figure>
+<h3 id="百分数和外边距"><a href="#百分数和外边距" class="headerlink" title="百分数和外边距"></a>百分数和外边距</h3><p>对元素外边距设置百分数值，是相对于父元素的width计算，不仅适用于左右外边距，也适用于【上下外边距】！（定位元素的上下边距如果是百分数值，其处理会有所不同，章10讨论）</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;<span class="attribute">width</span>: <span class="number">200px</span>;&#125;</span><br><span class="line">div &gt; p &#123;margin: 10%;&#125;    //200*10%=20px;</span><br></pre></td></tr></table></figure>
+<h3 id="值复制"><a href="#值复制" class="headerlink" title="值复制"></a>值复制</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">1.5em</span> <span class="number">10px</span> <span class="number">1.5em</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>有时为外边距输入的值会有些重复，不过不必像上面这样重复地键入这对数字，直接：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">1.5em</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>这两个值足以取代前面的四个值。值复制的规则如下：</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h3 id="单边外边距属性"><a href="#单边外边距属性" class="headerlink" title="单边外边距属性"></a>单边外边距属性</h3><p>幸运的是，确实有一种办法可以为元素单边上的外边距设置值。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>margin-top、margin-right、margin-bottom、margin-left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>auto \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的width</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于百分数，根据指定确定；否则，为绝对长度</td>
+</tr>
+</tbody>
+</table>
+<h3 id="负外边距和合并外边距"><a href="#负外边距和合并外边距" class="headerlink" title="负外边距和合并外边距"></a>负外边距和合并外边距</h3><p>章7曾经讨论过，可以为元素设置负外边距。这会导致元素超出其父元素，或者与其他元素重叠，但并不违反框模型</p>
+<p>正常流中垂直相邻外边距会合并</p>
+<h3 id="外边距和行内元素"><a href="#外边距和行内元素" class="headerlink" title="外边距和行内元素"></a>外边距和行内元素</h3><p>外边距还能应用到行内元素，不过效果稍有不同。</p>
+<p>这在规范中是允许的，向一个行内非替换元素应用外边距，它对行高没有任何影响（），其原因就在于行内非替换元素的外边距不会改变一个元素的行高。这只对行内非替换元素的上下边成立，左右两边则会增加或减少相应的距离</p>
+<p>替换元素又有不同：为其设置外边距确实会影响行高</p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><p>元素外边距内就是元素的边框。围绕着元素内容和内边距的一条或多条线。每个边框有三个方面：宽度或粗细、样式或外观、以及颜色</p>
+<h3 id="边框和背景"><a href="#边框和背景" class="headerlink" title="边框和背景"></a>边框和背景</h3><p>CSS2.1明确指出，元素的背景是内容、内边距和边框区的背景</p>
+<h3 id="有样式的边框"><a href="#有样式的边框" class="headerlink" title="有样式的边框"></a>有样式的边框</h3><p>先来讨论边框的样式，这是边框最重要的一个方面，并不只是因为样式控制着边框的显示，而是因为如果没有样式，将根本没有边框</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ none \</td>
+<td>hidden \</td>
+<td>dotted \</td>
+<td>dashed \</td>
+<td>solid \</td>
+<td>double \</td>
+<td>groove \</td>
+<td>ridge \</td>
+<td>inset \</td>
+<td>outset ]{1,4} \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>对简写属性没有没有定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见各个属性（border-top-style等）</td>
+</tr>
+</tbody>
+</table>
+<p>你不一定能看到边框，因为其默认样式是none</p>
+<h4 id="多种样式"><a href="#多种样式" class="headerlink" title="多种样式"></a>多种样式</h4><p>可以为边框定义多个样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">border-style</span>: solid dashed dotted solid;&#125;</span><br></pre></td></tr></table></figure>
+<p>关于外边距和内边距值复制的规则同样适用于边框样式</p>
+<h4 id="单边样式"><a href="#单边样式" class="headerlink" title="单边样式"></a>单边样式</h4><p>有时你可能只想为元素框的一边设置边框样式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-top-style、border-right-style、border-bottom-style、border-left-style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>none \</td>
+<td>hidden \</td>
+<td>dotted \</td>
+<td>dashed \</td>
+<td>solid \</td>
+<td>double \</td>
+<td>groove \</td>
+<td>ridge \</td>
+<td>inset \</td>
+<td>outset \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="边框宽度"><a href="#边框宽度" class="headerlink" title="边框宽度"></a>边框宽度</h3><p>一旦为边框指定一个样式，下一步就是适用border-width为它指定一个宽度</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ thin \</td>
+<td>medium \</td>
+<td>thick \</td>
+<td><length> ]{1,4} \</length></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>对简写属性没有定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见各个属性（border-top-width）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-top-width、border-right-width、border-bottom-width、border-left-width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>thin \</td>
+<td>medium \</td>
+<td>thick \</td>
+<td><length> \</length></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>medium</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>绝对长度；如果边框样式为none或hidden则为0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="根本没有边框"><a href="#根本没有边框" class="headerlink" title="根本没有边框"></a>根本没有边框</h4><p>样式为none的边框不存在，边框宽度自动设置为0</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;border-style: none; border-width: 20px;&#125;   //边框宽度为0</span><br></pre></td></tr></table></figure>
+<p>如果希望边框出现，【必须设置边框样式】</p>
+<h3 id="边框颜色"><a href="#边框颜色" class="headerlink" title="边框颜色"></a>边框颜色</h3><p>默认的边框颜色是元素前景色，设置颜色也很简单，利用属性border-color</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <color> \</color></td>
+<td>transparent ]{1,4} \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>对简写属性没有定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见各个属性（border-top-color）</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-top-color、border-right-color、border-bottom-color、border-left-color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>transparent \</td>
+<td><color> \</color></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>元素的color值</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>如果没有指定值，则使用同一元素的color属性的计算值；否则，根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<h4 id="透明边框"><a href="#透明边框" class="headerlink" title="透明边框"></a>透明边框</h4><p>你应该还记得，如果一个边框没有样式，就没有宽度。不过可以通过边框颜色值transparent创建一个有宽度的不可见框</p>
+<h3 id="简写边框属性"><a href="#简写边框属性" class="headerlink" title="简写边框属性"></a>简写边框属性</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border-top、border-right、border-bottom、border-left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <border-width> \</border-width></td>
+<td>\</td>
+<td><border-style> \</border-style></td>
+<td>\</td>
+<td><border-color> ] \</border-color></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>对简写属性没有定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见各个属性（border-width等）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="全局边框"><a href="#全局边框" class="headerlink" title="全局边框"></a>全局边框</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>border</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <border-width> \</border-width></td>
+<td>\</td>
+<td><border-style> \</border-style></td>
+<td>\</td>
+<td><border-color> ] \</border-color></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>根据单个属性</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>使用border的缺点在于，指定定义“全局”的样式、颜色和宽度，为border提供的值将完全相等地应用到所有4个边。不过可以充分利用层叠</p>
+<h3 id="边框和行内元素"><a href="#边框和行内元素" class="headerlink" title="边框和行内元素"></a>边框和行内元素</h3><p>对于处理边框和行内元素我们应该很熟悉了，很大程度上与外边距和行内元素的相应规则相同，在章7介绍过。不论为行内元素的边框指定怎样的宽度，元素的行高都不会改变。同样的，这也只对行内元素的上下边成立，左右距离会受到影响</p>
+<h2 id="内边距"><a href="#内边距" class="headerlink" title="内边距"></a>内边距</h2><p>元素框的内边距在边框和内容区之间</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>padding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <length> \</length></td>
+<td><percentage> ]{1,4} \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>对简写元素未定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含元块的width</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见单个属性（padding-top等）</td>
+</tr>
+<tr>
+<td style="text-align:center">说明：</td>
+<td>内边距绝对不能为负</td>
+</tr>
+</tbody>
+</table>
+<p>【内边距不合并】</p>
+<h3 id="百分数值和内边距"><a href="#百分数值和内边距" class="headerlink" title="百分数值和内边距"></a>百分数值和内边距</h3><p>为元素的内边距设置百分数，同外边距一样，百分数值要相对于其父元素的width计算</p>
+<h3 id="单边内边距"><a href="#单边内边距" class="headerlink" title="单边内边距"></a>单边内边距</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>padding-top、padding-right、padding-bottom、padding-left</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>0</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含元块的width</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于百分数值，根据指定确定；对于长度值，则为绝对长度</td>
+</tr>
+<tr>
+<td style="text-align:center">说明：</td>
+<td>内边距绝对不能为负</td>
+</tr>
+</tbody>
+</table>
+<h3 id="内边距和行内元素"><a href="#内边距和行内元素" class="headerlink" title="内边距和行内元素"></a>内边距和行内元素</h3><p>对于行内元素，外边距和内边距存在一个重要的区别。虽然也不改变行高，但有背景色和内边距的行内非替换元素，背景可以上下延伸</p>
+<h3 id="内边距和替换元素"><a href="#内边距和替换元素" class="headerlink" title="内边距和替换元素"></a>内边距和替换元素</h3><p>不论替换元素是块级元素还是行内元素，内边距都会围绕其内容</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>能够向所有元素应用外边距、边框和内边距</p>
+</div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a><a class="next" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

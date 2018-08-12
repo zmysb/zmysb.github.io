@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第十三章学习笔记：用户界面样式 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第十三章学习笔记：用户界面样式</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第十三章学习笔记：用户界面样式</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><p>CSS的绝大部分都是关于文档的样式，但还是提供了很多有用的界面样式工具，而不仅仅面向文档。类似可以重用用户默认环境的某些方面来设置文档的字体和颜色样式，甚至可以对焦点强调和鼠标光标施加影响</p>
+<h2 id="系统字体和颜色"><a href="#系统字体和颜色" class="headerlink" title="系统字体和颜色"></a>系统字体和颜色</h2><p>有时你希望自己的稳定尽可能的模仿用户的计算环境，看上去像操作系统的一部分。尽管CSS2不允许在自己的文档中重用操作系统外观的任何一个方面，不过有一组丰富的颜色和有限的字体可供选择</p>
+<h3 id="系统字体"><a href="#系统字体" class="headerlink" title="系统字体"></a>系统字体</h3><p>CSS2定义了6个系统字体关键字，分别描述如下</p>
+<p><strong>caption</strong></p>
+<p>​    由标题控件使用的字体样式，如按钮和下拉控件</p>
+<p><strong>icon</strong></p>
+<p>​    操作系统图标标签所用的字体样式，如硬盘驱动器、文件夹和文件图标</p>
+<p><strong>menu</strong></p>
+<p>​    下拉菜单和菜单列表中文本使用的字体样式</p>
+<p><strong>message-box</strong></p>
+<p>​    对话框中文本使用的字体样式</p>
+<p><strong>small-caption</strong></p>
+<p>​    由标题小空间的标签使用的字体样式</p>
+<p><strong>status-bar</strong></p>
+<p>​    窗口状态条中文本使用的字体样式</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.widget &#123;font: caption;&#125;    //一个功能相当于按钮的控件，使之与有标题控件（如按钮）中文本使用同样的字体系列、字体大小、字体加粗、字体风格以及字体变形</span><br></pre></td></tr></table></figure>
+<p>【注意】上述值只能用于font属性，且它们本身都是简写了已经（注意样式覆盖）</p>
+<h3 id="系统颜色"><a href="#系统颜色" class="headerlink" title="系统颜色"></a>系统颜色</h3><p>【警告】CSS3颜色模块已经废弃了系统颜色关键字</p>
+<p>CSS2定义了28格系统颜色关键字，只要能用<color>值的环境，就可以使用这些值</color></p>
+<p>p403了解</p>
+<h2 id="光标"><a href="#光标" class="headerlink" title="光标"></a>光标</h2><p>用户界面的另一个重要部分是光标（CSS规范中“指示设备”），由鼠标、写字板、图形书写板甚至光学读取系统之类的设备控制。在大多数Web浏览器中，光标对于提供交互反馈很有用，如光标经过一个超链接时会变成一个小手</p>
+<h3 id="改变光标"><a href="#改变光标" class="headerlink" title="改变光标"></a>改变光标</h3><p>CSS2允许改变光标图标，利用cursor属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>cursor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ [<uri>,]* [ auto \</uri></td>
+<td>default \</td>
+<td>pointer \</td>
+<td>crosshair \</td>
+<td>move \</td>
+<td>e-resize \</td>
+<td>ne-resize \</td>
+<td>nw-resize \</td>
+<td>n-resize \</td>
+<td>se-resize \</td>
+<td>sw-resize \</td>
+<td>s-resize \</td>
+<td>w-resize \</td>
+<td>text \</td>
+<td>wait \</td>
+<td>help \</td>
+<td>progress ] ] \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>auto</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于<uri>值，为绝对URI；否则，根据指定确定</uri></td>
+</tr>
+</tbody>
+</table>
+<p>默认值auto表示用户代理应当确定最适合当前上下文的光标图标，与default不同，后者要求图标是操作系统的默认光标（通常是一个箭头）</p>
+<h4 id="指示和选择光标"><a href="#指示和选择光标" class="headerlink" title="指示和选择光标"></a>指示和选择光标</h4><p>利用cursor可以将任何元素定义为像链接一样改变图标为“小手”、text图标、十字符号等</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span> &#123;<span class="attribute">cursor</span>: pointer;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h4><h4 id="等待和前进"><a href="#等待和前进" class="headerlink" title="等待和前进"></a>等待和前进</h4><h4 id="提供帮助"><a href="#提供帮助" class="headerlink" title="提供帮助"></a>提供帮助</h4><h4 id="图形光标"><a href="#图形光标" class="headerlink" title="图形光标"></a>图形光标</h4><h2 id="轮廓"><a href="#轮廓" class="headerlink" title="轮廓"></a>轮廓</h2><p>CSS还引入了用户界面样式最后一个主要方面：轮廓。有点类似于边框，不过有两个重要区别：首先轮廓不像边框那样参与到文档了中，因此轮廓出现和消失不会影响文档流；其次轮廓可能不是矩形</p>
+<h3 id="设置轮廓样式"><a href="#设置轮廓样式" class="headerlink" title="设置轮廓样式"></a>设置轮廓样式</h3><p>类似于边框，轮廓最基本的方面就是样式，利用outline-style设置</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>outline-style</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>none \</td>
+<td>dotted \</td>
+<td>dashed \</td>
+<td>solid \</td>
+<td>double \</td>
+<td>groove \</td>
+<td>ridge \</td>
+<td>inset \</td>
+<td>outset \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>轮廓样式关键字与边框样式关键字基本上相同，视觉效果也类似。另一个区别是，只能为一个outline-style值指定一个关键字（边框可以指定最多四个关键字）</p>
+<h3 id="轮廓宽度"><a href="#轮廓宽度" class="headerlink" title="轮廓宽度"></a>轮廓宽度</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>outline-width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>thin \</td>
+<td>medium \</td>
+<td>thick \</td>
+<td><length> \</length></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>medium</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>绝对长度；如果轮廓样式为none则为0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="设置轮廓颜色"><a href="#设置轮廓颜色" class="headerlink" title="设置轮廓颜色"></a>设置轮廓颜色</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>outline-color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><color> \</color></td>
+<td>invert \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>invert(或用户代理特定的值；见正文说明)</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>边框和轮廓最有意思的差别：默认值invert。其导致对轮廓“后面”的像素完成反色反转。当然想为轮廓定义一种特定的颜色，只需使用任何合法的颜色值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">outline-color</span>: red;</span><br><span class="line">    <span class="attribute">outline-color</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">outline-color</span>: <span class="built_in">rgb</span>(50,50,50);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类似轮廓样式和宽度，对整个轮廓只能定义一种颜色</p>
+<h3 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h3><p>类似于设置边框样式的border属性，轮廓也有一个简写属性outline，允许一次就完成轮廓样式、宽度和颜色的设置</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>outline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <outline-color> \</outline-color></td>
+<td><outline-style> \</outline-style></td>
+<td><outline-width> ] \</outline-width></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>对简写属性未定义</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见各个属性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2></div><div class="tags"></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a><a class="next" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

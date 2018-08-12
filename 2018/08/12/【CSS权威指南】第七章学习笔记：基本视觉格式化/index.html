@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第七章学习笔记：基本视觉格式化 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第七章学习笔记：基本视觉格式化</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第七章学习笔记：基本视觉格式化</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><p>前几章中，针对CSS如何处理文档中的文本和字体介绍了很多实用知识，这一章介绍视觉表现和前面为了强调CSS如何实现而跳过的一些问题。</p>
+<p>视觉表现的一些理论方面，掌握视觉模型如何工作</p>
+<h2 id="基本框"><a href="#基本框" class="headerlink" title="基本框"></a>基本框</h2><p>CSS假定每个元素都会生成一个或多个矩形框，这称为元素框。元素框中心有一个内容区（content area），这个内容区周围有可选的内边距、边框和外边距</p>
+<p>内容的背景也会应用到内边距。外边距通常是透明的。内边距和边框宽度不能是负值，但外边距可以</p>
+<h3 id="包含块"><a href="#包含块" class="headerlink" title="包含块"></a>包含块</h3><p>包含块就是一个元素的“布局上下文”，每个元素都相对于其包含块摆放</p>
+<p>包含块由最近的块级祖先框、表单元格或行内块祖先框的内容边界构成</p>
+<h3 id="快速复习"><a href="#快速复习" class="headerlink" title="快速复习"></a>快速复习</h3><p>P167</p>
+<ul>
+<li>正常流</li>
+<li>非替换元素</li>
+<li>替换元素</li>
+<li>块级元素</li>
+<li>行内元素</li>
+<li>根元素</li>
+</ul>
+<h2 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h2><p>一般地，一个元素的width被定义为从左内边界到右内边界的距离，height则是从上内边界到下内边界的距离。不同高宽、内外边距相结合就可以确定文档的布局。大多数情况下，文档的高度和宽度由浏览器自动确定，这要基于可用的显示区域和其他一些因素。当然CSS下可用更直接的控制元素大小及其显示方式</p>
+<p>对于水平和垂直布局，可以选择不同的效果：</p>
+<h3 id="水平格式化"><a href="#水平格式化" class="headerlink" title="水平格式化"></a>水平格式化</h3><p>水平格式化复杂性在于width影响的是内容区的宽度，而不是整个可见的元素框</p>
+<p>简单规则：正常流中块级元素元素框的水平部分总和就等于父元素的width</p>
+<h4 id="水平属性"><a href="#水平属性" class="headerlink" title="水平属性"></a>水平属性</h4><p>margin-left、bolder-left、padding-left、width、padding-right、bolder-right、margin-right这7个属性的值加起来必须是元素包含块的宽度，往往是块元素的父元素的width（块级元素的父元素几乎都是块级元素）</p>
+<h4 id="使用auto"><a href="#使用auto" class="headerlink" title="使用auto"></a>使用auto</h4><p>只有width、margin-left、margin-right可以设置为auto。</p>
+<ul>
+<li><p>如果设置其中一个值为auto，会弥补实际值与所需总和的差距</p>
+</li>
+<li><p>若三个都不为auto，此时总会把margin-right强制为auto</p>
+</li>
+<li><p>不止一个auto时，</p>
+<p>只有width非auto，则左右margin相等，能将元素在其父元素居中（不同于text-align只应用于块级元素的内联内容） ；</p>
+<p>将某个外边距和width设置为auto，则设置为auto的外边距会减为0；</p>
+</li>
+<li><p>三个均为auto，外边距均会减为0</p>
+</li>
+</ul>
+<h4 id="负外边距"><a href="#负外边距" class="headerlink" title="负外边距"></a>负外边距</h4><p>负外边距使子元素可能宽过父元素</p>
+<h4 id="百分数"><a href="#百分数" class="headerlink" title="百分数"></a>百分数</h4><p>width、内边距和外边距设置为包含块宽度的百分数占比</p>
+<h4 id="替换元素"><a href="#替换元素" class="headerlink" title="替换元素"></a>替换元素</h4><p>非替换块级元素的所有规则同样适用于替换块级元素，其width如果设置为auto，高度也会成比例一起变化</p>
+<h3 id="垂直格式化"><a href="#垂直格式化" class="headerlink" title="垂直格式化"></a>垂直格式化</h3><p>一个元素的默认高度由其内容决定，高度还会受内容宽度的影响。在CSS中，可以对任何块级元素设置显式高度，高度不匹配时用户代理对大余的高度显示的视觉效果好像有额外的内边距一样，小于的高度用户代理可能会取决于overflow的值为内容区增加滚动条（以及用户代理对overflow属性的支持程度）</p>
+<h4 id="垂直属性"><a href="#垂直属性" class="headerlink" title="垂直属性"></a>垂直属性</h4><p>margin-top、bolder-top、padding-top、width、padding-bottom、bolder-bottom、margin-bottom这7个属性的值加起来必须是元素包含块的高度，往往是块元素的父元素的height（块级元素的父元素几乎都是块级元素）</p>
+<h4 id="百分数-1"><a href="#百分数-1" class="headerlink" title="百分数"></a>百分数</h4><p>一个块级正常流元素的height设置为一个百分数，则这个值是包含块height的一个百分数</p>
+<h4 id="auto高度"><a href="#auto高度" class="headerlink" title="auto高度"></a>auto高度</h4><p>在最简单的情况下，如果块级正常流元素设置height: auto，显示时其高度将恰好足以包含其内联内容（包括文本）的行盒。其默认高度是从最高块级子元素的外边框边界到最低块级子元素的外边框边界，所以子元素的外边距会“超出”盒。除非块级元素有上内边距或下内边距，上内边框或下内边框（隔开父子两个外边距，避免合并）其高度是从最高块级子元素的上边距边界到最低块级子元素的下边距边界</p>
+<h4 id="合并垂直外边距"><a href="#合并垂直外边距" class="headerlink" title="合并垂直外边距"></a>合并垂直外边距</h4><p>合并行为只应用于外边距，如果元素有内边距和边框，它们绝对不会合并</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">li &#123;margin-top: 10px; margin-bottom: 15px&#125;    //每项间隔15px</span><br></pre></td></tr></table></figure>
+<p>如果相邻块级元素垂直外边距都设置为正值，取大值</p>
+<h4 id="负外边距-1"><a href="#负外边距-1" class="headerlink" title="负外边距"></a>负外边距</h4><p>如果相邻块级元素垂直外边距都设置为负值，浏览器会选取绝对值最大的那个值；一正一负，取和</p>
+<h3 id="列表项"><a href="#列表项" class="headerlink" title="列表项"></a>列表项</h3><p>列表项通常前面有一个标志“·”，其不是列表项内容区的一部分，属性list-style-position可将其放入内容内部，那么列表项整体就像一个块元素</p>
+<h2 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h2><p>为行内元素设置框属性，非替换元素和替换元素在内联内容方面的处理稍有不同</p>
+<h3 id="行布局"><a href="#行布局" class="headerlink" title="行布局"></a>行布局</h3><p>P187</p>
+<h3 id="基本术语和概念"><a href="#基本术语和概念" class="headerlink" title="基本术语和概念"></a>基本术语和概念</h3><p>P142很直观</p>
+<ul>
+<li><p>匿名文本</p>
+<p>所有未包含在行内元素中的字符串</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    i'm <span class="tag">&lt;<span class="name">em</span>&gt;</span>so<span class="tag">&lt;/<span class="name">em</span>&gt;</span> happy!    //i'm和happy是匿名文本</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>em框</p>
+<p>font-size的值确定各个em框的高度</p>
+</li>
+<li><p>内容区</p>
+<p>在非替换元素中，即元素中各字符的em框串在一起构成的框</p>
+<p>在替换元素中的固有高度再加上可能有的外边距，边框或内边距</p>
+</li>
+<li><p>行间距</p>
+<p>行间距只应用在非替换元素，行间距是font-height和font-size的差值，分为两部分，顶部和底部</p>
+</li>
+<li><p>行内框</p>
+<p>通过向内容区增加行间距来描述。非替换元素的行内框高度即line-height的值。替换元素，行内框的高度等于内容区的高度（行间距不应用到替换元素）</p>
+</li>
+<li><p>行框</p>
+<p>这是包含该行中出现的行内框的最高点和最低点的最小框。</p>
+</li>
+</ul>
+<p>如何逐步构造一个行框，通过这这个过程来了解一行的各部分如何共同确定其高度：</p>
+<ol>
+<li>按以下步骤确定行中各元素行内框的高度：<ol>
+<li>得到各行内非替换元素及其不属于后代行内元素的所有文本的font-size值和line-height值</li>
+<li>得到各替换元素的height、margin、border、padding值，把它们加在一起</li>
+</ol>
+</li>
+<li>对于各内容区，将这些元素基线与父元素基线对齐</li>
+<li>对于指定了vertical-align值的元素，确定其垂直偏移量，改变其与基线的垂直距离</li>
+<li>已经知道所有行内框的摆放，计算行框高度。只需将基线与最高行内框顶端之间的距离加上基线与最低行内框底端的距离</li>
+</ol>
+<h3 id="行内格式化"><a href="#行内格式化" class="headerlink" title="行内格式化"></a>行内格式化</h3><h3 id="行内非替换元素"><a href="#行内非替换元素" class="headerlink" title="行内非替换元素"></a>行内非替换元素</h3><p>如果行中只包含非替换元素（或匿名文本）将如何构造</p>
+<h4 id="建立框"><a href="#建立框" class="headerlink" title="建立框"></a>建立框</h4><p>对于非替换元素或匿名文本某一部分，font-size确定了内容区的高度，即em框高度；line-height确定了其行内框的高度</p>
+<h4 id="垂直对齐"><a href="#垂直对齐" class="headerlink" title="垂直对齐"></a>垂直对齐</h4><p>如果改变行内框的垂直对齐，会应用同样的高度确定原则，影响整个行框高度</p>
+<h4 id="管理line-height"><a href="#管理line-height" class="headerlink" title="管理line-height"></a>管理line-height</h4><p>之前了解到改变一个行内元素的line-height可以导致文本重叠，不过都是针对单个元素的。如何以一种更一般的方式影响元素的line-height而避免内容重叠呢？</p>
+<ul>
+<li>对font-size有改变的元素结合使用em单位</li>
+</ul>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font-size</span>: <span class="number">24px</span>; <span class="attribute">line-height</span>: <span class="number">1em</span>;&#125;</span><br><span class="line">big &#123;font-size: 250%; line-height&#125;    //为big元素设置行高用以提高整个行框的总高度</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接改变父元素的line-height以容纳行内元素的改变</li>
+</ul>
+<h4 id="缩放行高"><a href="#缩放行高" class="headerlink" title="缩放行高"></a>缩放行高</h4><p>可以看到，设置line-height最好的方式是使用一个原始数字值（缩放因子），因为改因子是一个继承值而非计算值，能应用到后代所有元素中。缩放因子在元素间逐层传递，在各层上，这个因子都作为一个乘数各元素的font-size相乘</p>
+<h4 id="增加框属性"><a href="#增加框属性" class="headerlink" title="增加框属性"></a>增加框属性</h4><p>内边距、边框和外边距都可以应用到行内非替换元素，但不会影响行框的高度。可以影响元素左右两端距离</p>
+<h3 id="行内替换元素"><a href="#行内替换元素" class="headerlink" title="行内替换元素"></a>行内替换元素</h3><p>一般认为行内替换元素（如图像）有固有的高度和宽度，可能导致行框比正常要高，但不会改变行内任何元素的ling-height值，包括替换元素本身</p>
+<p>替换元素的行内框由其内容、内外边距、边框定义</p>
+<h4 id="增加框属性-1"><a href="#增加框属性-1" class="headerlink" title="增加框属性"></a>增加框属性</h4><p>内边距和边框像平常一样应用到行内替换元素，且其确实会影响行框的高度，因为它们作为行内替换元素的行内框的一部分；外边距也包含在行框中，它稍微特殊一点就是可以为负</p>
+<h4 id="替换元素和基线"><a href="#替换元素和基线" class="headerlink" title="替换元素和基线"></a>替换元素和基线</h4><p>默认地，行内替换元素位于基线上，若增加下内边距／外边距／边框，内容区会上移。替换元素没有自己的基线，一般将其行内框的底端（实际上是下外边距边界）与基线对齐</p>
+<h2 id="改变元素显示"><a href="#改变元素显示" class="headerlink" title="改变元素显示"></a>改变元素显示</h2><p>章1简单提到过可以使用属性display设置一个值来影响用户代理显示的方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>display</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>none \</td>
+<td>inline \</td>
+<td>block \</td>
+<td>inline-block \</td>
+<td>list-item \</td>
+<td>run-in \</td>
+<td>tabel \</td>
+<td>inline-table \</td>
+<td>table-row-group \</td>
+<td>table-header-group \</td>
+<td>table-footer-group \</td>
+<td>table-row \</td>
+<td>table-column-group \</td>
+<td>table-column \</td>
+<td>table-cell \</td>
+<td>table-caption \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>inline</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于浮动、定位和根元素，计算值可变（章9.7节）；否则，根据指定决定</td>
+</tr>
+</tbody>
+</table>
+<p>我们将忽略与表有关的值（章11）、值list-item（章12）。已经花了很大篇幅讨论了块级元素和行内元素，下面介绍inline-block元素，不过在那之前先花点时间介绍改变元素显示角色将如何改变布局</p>
+<h3 id="改变角色"><a href="#改变角色" class="headerlink" title="改变角色"></a>改变角色</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123;<span class="attribute">display</span>: inline;&#125;</span><br><span class="line"><span class="selector-tag">a</span> &#123;<span class="attribute">display</span>: block;&#125;</span><br></pre></td></tr></table></figure>
+<p>【注意】改变的只是元素的显示角色，而不是其本质。例让一个段落生成行内框并不会把这个段落真正变成一个行内元素。display只影响元素如何显示</p>
+<h3 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h3><p>实际上，行内块元素会作为替换元素放在行中。在行内块内部，会像块级元素一样设置内容的格式，就像所有块级元素或行内替换元素一样，也有属性width和height，如果比周围内容高，这些属性会使行高增加</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>尽管CSS格式化模型某些方面看起来不太直观，最初看起来没道理甚至荒谬的规则最后看来确实是合理的。很多方面块级元素都很容易理解和便于调整布局，行内元素则可能很难管理，因为有很多影响因素，还包括元素是替换还是非替换元素。</p>
+<p>现在我们对文档布局的基础知识有所了解，下面关注如何使用各种布局属性，后几章都在讨论这个方面，首先看看最常用的框属性：内边距、边框和外边距</p>
+</div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a><a class="next" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

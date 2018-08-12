@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第九章学习笔记：颜色和背景 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第九章学习笔记：颜色和背景</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第九章学习笔记：颜色和背景</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><p>CSS允许向一个页面应用多种不同的颜色和背景，而且不需要任何的FONT\TABLE标记</p>
+<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><p>在CSS中，可以为任何元素设置前景色和背景色，从body到强调元素、超链接元素，再到几乎所有一切（列表项、整个列表、标题、表单元格，甚至从某种程度上图像也可以设置前景色和背景色）。要理解这是如何工作，需要理解元素前景中有什么，没有什么</p>
+<p>一般来说，前景是元素的文本，不过前景还包括元素周围的边框。因此有两种方式可以影响元素的前景色：可以使用color属性，或使用某个边框属性设置颜色</p>
+<h2 id="前景色"><a href="#前景色" class="headerlink" title="前景色"></a>前景色</h2><p>要设置一个元素的前景色，最容易的办法是利用属性color</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><color> \</color></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>用户代理特定的值</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>在章4曾讨论过，这个属性接受任何合法颜色类型的值，例如#FF0066或rgb(1,2,30%)，也可以接受章13将介绍的系统颜色关键字</p>
+<p>对于非替换元素，color设置了元素中文本的颜色</p>
+<h3 id="替换属性"><a href="#替换属性" class="headerlink" title="替换属性"></a>替换属性</h3><p>color有很多用法，最重要的是替换HMTL 3.2的BODY属性TEXT、LINK、ALINK、VLINK。利用伪锚类，color完全可以替换这些BODY属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">text</span>=<span class="string">"black"</span> <span class="attr">link</span>=<span class="string">"#808080"</span> <span class="attr">alink</span>=<span class="string">"silver"</span> <span class="attr">vlink</span>=<span class="string">"#333"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">color</span>: black;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;<span class="attribute">color</span>: <span class="number">#808080</span>;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span> &#123;<span class="attribute">color</span>: silver;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span> &#123;<span class="attribute">color</span>: <span class="number">#333</span>;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="影响边框"><a href="#影响边框" class="headerlink" title="影响边框"></a>影响边框</h3><p>color值还可以影响元素周围的边框</p>
+<h3 id="影响表单元素"><a href="#影响表单元素" class="headerlink" title="影响表单元素"></a>影响表单元素</h3><p>（从理论上讲）也可以为表单元素设置color值，声明select元素有暗灰色文本很简单</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">select</span> &#123;<span class="attribute">color</span>: <span class="built_in">rgb</span>(33%,33%,33%);&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以设置input元素的前景色等</p>
+<h3 id="继承颜色"><a href="#继承颜色" class="headerlink" title="继承颜色"></a>继承颜色</h3><p>由color的定义可知，这个属性是可以继承的</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>元素的背景区包括前景之下直到边框边界的所有空间，因此内容框和内边距都是元素背景的一部分，且边框画在背景之上</p>
+<p>CSS允许应用纯色作为背景，也允许使用背景图像创建相当复杂的效果；CSS在这方面的能力远超HTML</p>
+<h3 id="背景色"><a href="#背景色" class="headerlink" title="背景色"></a>背景色</h3><p>类似于设置前景色，可以为元素声明一个背景色，使用background-color属性，它接受所有合法的颜色，还可以接受一个使背景透明的关键字</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>background-color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><color> \</color></td>
+<td>transparent \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>transparent</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>如果希望背景色从元素中的文本下向外稍延伸，只需要增加一些内边距。可以为几乎所有元素设置背景色，但background-color不能继承，其默认值是transparent</p>
+<h4 id="结合效果"><a href="#结合效果" class="headerlink" title="结合效果"></a>结合效果</h4><p>只需结合color和background-color就可以创造一些有用的效果</p>
+<h3 id="背景图像"><a href="#背景图像" class="headerlink" title="背景图像"></a>背景图像</h3><p>在HTML3.2中，可以通过 BODY属性的background属性向文档背景关联一个 图像</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">"bg23.gif"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这会使用户代理加载文件bg23.gif然后把它“平铺”在文档背景中，沿水平方向和垂直方向重复放置这个图像，填满文档的整个背景。这种效果CSS也能达到，不过CSS能做到更多</p>
+<h4 id="使用图像"><a href="#使用图像" class="headerlink" title="使用图像"></a>使用图像</h4><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>background-image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><uri> \</uri></td>
+<td>none \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>绝对URI</td>
+</tr>
+</tbody>
+</table>
+<p>类似于background-color，background-image也不能继承，实际上，所有的背景属性都不能继承。还需记住，指定背景图像的URL时，相对路径是结合样式表而言的</p>
+<h4 id="为什么背景不能继承"><a href="#为什么背景不能继承" class="headerlink" title="为什么背景不能继承"></a>为什么背景不能继承</h4><p>之前专门指出过，背景不能继承。从背景图像可以了解到为什么继承背景不是一件好事。假设背景确实能继承，而且向body应用的了一个背景图像，这个图像将用于文档所有元素的背景，而且每个元素都完成自己的平铺，类似以下语句效果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* &#123;<span class="attribute">background-image</span>: <span class="built_in">url</span>(yinyang.gif);&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="关于背景的良好实践"><a href="#关于背景的良好实践" class="headerlink" title="关于背景的良好实践"></a>关于背景的良好实践</h4><p>图像放在指定的背景颜色上。如果完全平铺不透明图象颜色倒是不会透出来，但包含alpha通道的图像格式如png，可以与背景色结合。也能使图像加载失败的时候</p>
+<h3 id="有方向的重复"><a href="#有方向的重复" class="headerlink" title="有方向的重复"></a>有方向的重复</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>background-repeat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>repeat \</td>
+<td>repeat-x \</td>
+<td>repea-y \</td>
+<td>no-repea \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>repeat</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="背景定位"><a href="#背景定位" class="headerlink" title="背景定位"></a>背景定位</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>background-position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><percentage> \</percentage></td>
+<td><length> \</length></td>
+<td>left \</td>
+<td>center \</td>
+<td>right \</td>
+<td>top \</td>
+<td>bottom \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>0% 0%</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素和替换元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于元素和原图像上的相应点（见本章后的“百分数值”一节的解释）</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>如果指定了<length>，则为绝对长度偏移；否则，是百分数值</length></td>
+</tr>
+</tbody>
+</table>
+<h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><p>图像放置关键字最容易理解。例如top right使原图放在元素内边距区的右上角。如果只出现了一个关键字，则认为另一个关键字是center</p>
+<h4 id="百分数值"><a href="#百分数值" class="headerlink" title="百分数值"></a>百分数值</h4><p>百分数值和关键字紧密相关，不过表现方式更为复杂。百分数值同时应用于元素和原图像</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p &#123;background-position: 50% 50%;&#125;    //图像中描述为50%50%的点（中心点）与元素中描述为50%50%的点（中心点）对齐</span><br></pre></td></tr></table></figure>
+<h4 id="长度值"><a href="#长度值" class="headerlink" title="长度值"></a>长度值</h4><p>最后看定位的长度值。在原图像的位置提供长度值时，这些长度值将解释为从元素内边距区左上角的偏移。</p>
+<p>如果使用长度值或百分数值，可以使用负值把原图像拉出元素的背景区（部分出现）</p>
+<h3 id="有方向的重复（深入）"><a href="#有方向的重复（深入）" class="headerlink" title="有方向的重复（深入）"></a>有方向的重复（深入）</h3><p>之前介绍的背景重复，对于其关键值repeat、repeat-x等总是从包含元素的左上角开始。利用background-position移动图像位置，就能使重复从其指定的位置开始</p>
+<h3 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h3><p>现在已经知道可以将背景原题像放在元素背景上的任何位置，可以控制（某种程度上）平铺。但图像往往随着文档滚动，每次用户滚动超过图像的位置，图像就会消失。使用background-attachment可以防止这种滚动</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>background-attatchment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>scroll \</td>
+<td>fixd \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>scroll</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>通过使用属性background-attachment可以声明原图像相对于【可视区】是固定的（fixed）不受滚动的影响</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(bigyinyang.gif);</span><br><span class="line">    <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">    <span class="attribute">background-position</span>: center;</span><br><span class="line">    <span class="attribute">background-attachment</span>: fixd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="有意思的效果"><a href="#有意思的效果" class="headerlink" title="有意思的效果"></a>有意思的效果</h4><p>技术上讲，一个图像背景已经固定（fixed），它会相对于可视区定位，而不是相对于包含该图像的元素定位。不过背景将只在其包含元素中可见</p>
+<h3 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h3><p>与字体属性一样，背景属性可以汇总到一个简写属性：background。这个属性可以 从各个其他背景属性取一个值，而且可以采用任何顺序</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>background</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ <background-color> \</background-color></td>
+<td>\</td>
+<td><background-image> \</background-image></td>
+<td>\</td>
+<td><background-repeat> \</background-repeat></td>
+<td>\</td>
+<td><background-attachment> \</background-attachment></td>
+<td>\</td>
+<td><background-position> ] \</background-position></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>根据单个属性</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td><background-position>允许的值</background-position></td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>见单个属性</td>
+</tr>
+</tbody>
+</table>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>CSS给元素应用样式，除了在元素周围放置边框、额外的内外边距，还可以向任何元素设置颜色和背景</p>
+<p>设置可以“浮动”元素，下一章介绍</p>
+</div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a><a class="next" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>

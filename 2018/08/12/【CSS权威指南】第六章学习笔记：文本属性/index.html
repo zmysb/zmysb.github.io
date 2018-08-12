@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【CSS权威指南】第六章学习笔记：文本属性 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【CSS权威指南】第六章学习笔记：文本属性</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【CSS权威指南】第六章学习笔记：文本属性</h1><div class="post-meta">Aug 12, 2018</div><div class="post-content"><p>文本和字体不同：文本是内容，字体用于显示这个内容。使用文本属性，可以控制文本相对于该行余下内容的位置、使其作为上标、加下划线、以及改变大小写等。甚至还可以有限地模拟打字机的Tab键的使用</p>
+<h2 id="缩进和水平对齐"><a href="#缩进和水平对齐" class="headerlink" title="缩进和水平对齐"></a>缩进和水平对齐</h2><p>如何影响文本在行中的水平定位。</p>
+<h3 id="缩进文本"><a href="#缩进文本" class="headerlink" title="缩进文本"></a>缩进文本</h3><p>将Web页面上一个段落的第一行进行缩进，这是一种常用的文本格式化效果（去除段落之间的空行是第二常用的方法，章7会讨论）。实现文本缩进很好的方法是用test-indent属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>test-indent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage>  \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>0</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于包含块的宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于百分数值，根据指定确定；对于长度值，则为绝对长度</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">text-indent</span>: <span class="number">3em</span>;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="水平对齐"><a href="#水平对齐" class="headerlink" title="水平对齐"></a>水平对齐</h3><p>text-align影响一个元素中的文本行相互之间的对齐方式</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>test-align</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CSS2.1值：</td>
+<td>left \</td>
+<td>center \</td>
+<td>right \</td>
+<td>justify \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">CSS2值：</td>
+<td>left \</td>
+<td>center \</td>
+<td>right \</td>
+<td>justify \</td>
+<td><string> \</string></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>用户代理特定的值；还可能取决于书写方向</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>块级元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+<tr>
+<td style="text-align:center">说明：</td>
+<td>CSS2.1去除一个<string>值，因为没有相应实现</string></td>
+</tr>
+</tbody>
+</table>
+<p>text-align: center与<center>元素大不相同：<center>不仅影响文本，还会把整个元素居住。test-align不会控制元素的对齐，而只影响其内部内容</center></center></p>
+<h2 id="垂直对齐"><a href="#垂直对齐" class="headerlink" title="垂直对齐"></a>垂直对齐</h2><p>简单概述垂直对齐，文本行的构造会在章7详细讨论</p>
+<h3 id="行高"><a href="#行高" class="headerlink" title="行高"></a>行高</h3><p>line-height属性是指文本行基线之间的距离，不是字体的大小，确定了将各个元素框的高度增加或减少多少。line-height的值和字体大小之差才是行间距</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>line-height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td><number> \</number></td>
+<td>normal \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素（不过请参考替换元素和块级元素的介绍）</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于元素的字体大小</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于长度和百分数值是绝对数值；否值，根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>在应用到块级元素时，定义的是元素中文本基线之间的最小距离，而不是一个绝对数值，文本基线拉开的距离可能比line-height值更大。应用到替换元素，章7讨论</p>
+<h4 id="构造文本行"><a href="#构造文本行" class="headerlink" title="构造文本行"></a>构造文本行</h4><p>文本行中的每个元素都会生成一个内容区，这由字体大小确定。内容区则会生成一个行内框（inline box），如果不存在其他因素，这个行内框就完全等于该元素的内容区。line-height产生的行间距就是在增加或减少各行内框高度因素之一 P142图片很直观</p>
+<h4 id="指定line-height的值"><a href="#指定line-height的值" class="headerlink" title="指定line-height的值"></a>指定line-height的值</h4><p>默认值normal由用户代理计算，通常是字体大小的1.2倍，使得行内框高于给定元素的font-size值</p>
+<h4 id="行高和继承"><a href="#行高和继承" class="headerlink" title="行高和继承"></a>行高和继承</h4><p>当一个块级元素从另一个元素继承line-height时，要从父元素字体大小计算，而不是子元素上计算。如果line-height小，font-size大就会出现一些问题。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        this text for test</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">10px</span>;&#125;</span><br><span class="line">div &#123;line-height: 1em;&#125;    //字体大小继承body，行高为10*1=10px</span><br><span class="line">p &#123;font-size: 18px;&#125;    //字体大于行高，文本行之间有交叠</span><br></pre></td></tr></table></figure>
+<p>显式地为每个元素设置line-height不如指定一个缩放因子（number）：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;<span class="attribute">font-size</span>: <span class="number">10px</span>;&#125;</span><br><span class="line">div &#123;line-height: 1;&#125;    //指定一个数</span><br><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font-size</span>: <span class="number">18px</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p>line-height指定一个数时，缩放因子将是继承值而不是计算值。这个数会应用到该元素及其所有子元素，所以各元素都根据自己的font-size计算line-height</p>
+<h3 id="垂直对齐文本"><a href="#垂直对齐文本" class="headerlink" title="垂直对齐文本"></a>垂直对齐文本</h3><p>在CSS中vertical-align属性只能应用于行内元素和替换元素，且不能继承</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>vertical-align</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>baseline \</td>
+<td>sub \</td>
+<td>super \</td>
+<td>top \</td>
+<td>next-top \</td>
+<td>middle \</td>
+<td>botton \</td>
+<td>text-bottom \</td>
+<td><length> \</length></td>
+<td><percentage> \</percentage></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>baseline</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>行内元素和表单元格</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">百分数：</td>
+<td>相对于元素的line-height值</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于长度值和百分数，为绝对长度；否值，根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>垂直对齐会使文本行变高（文本行框描述：其高度足以包含最高行内框的顶端和最低行内框的底端，这包括因垂直对齐上升或下降的行内框）</p>
+<h4 id="基线对齐"><a href="#基线对齐" class="headerlink" title="基线对齐"></a>基线对齐</h4><p>verticcal-align: baseline要求一个元素的基线与父元素的基线对齐。如果一个垂直对齐元素没有基线（图像或表单输入元素，或其他替换元素），则该元素底端与父元素基线对齐</p>
+<h4 id="上标和下标"><a href="#上标和下标" class="headerlink" title="上标和下标"></a>上标和下标</h4><p>verticcal-align: sub／super声明会使一个元素变成下／上标，其基线（或替换元素底端）相对于父元素的基线降低／升高，但不会改变字体大小</p>
+<h4 id="底端对齐"><a href="#底端对齐" class="headerlink" title="底端对齐"></a>底端对齐</h4><p>verticcal-align: bottom将元素行内框的底端与行框的底端对齐</p>
+<p>verticcal-align: text-bottom是指将行内文本的底端（替换元素或任何其他类型的非文本元素会忽略这个值）</p>
+<h4 id="顶端对齐"><a href="#顶端对齐" class="headerlink" title="顶端对齐"></a>顶端对齐</h4><p>verticcal-align: top的效果与botton刚好相反。类似的verticcal-align: text-top则与verticcal-align: text-bottom作用相反</p>
+<h4 id="居中对齐"><a href="#居中对齐" class="headerlink" title="居中对齐"></a>居中对齐</h4><p>middle把行内元素框的中点与父元素基线上方0.5ex处的一个点对齐（这里的1ex相对于父元素的font-size定义）</p>
+<h4 id="百分数"><a href="#百分数" class="headerlink" title="百分数"></a>百分数</h4><p>使用百分数不能模仿图像的align=”middle”（垂直）对齐，如果为verticcal-align设置一个百分数，会把元素的基线（或替换元素的底边）相对于父元素的基线升高或降低指定的量（该元素line-height乘百分数）</p>
+<h4 id="长度对齐"><a href="#长度对齐" class="headerlink" title="长度对齐"></a>长度对齐</h4><p>为verticcal-align设定一个长度，则把一个元素升高或降低指定的距离</p>
+<h2 id="字间隔和字母间隔"><a href="#字间隔和字母间隔" class="headerlink" title="字间隔和字母间隔"></a>字间隔和字母间隔</h2><h3 id="字间隔"><a href="#字间隔" class="headerlink" title="字间隔"></a>字间隔</h3><p>word-spacing用于修改字间间隔，默认值normal与设置值为0等价</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>word-spacing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td><length> \</length></td>
+<td>normal \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>对于normal，为绝对长度0；否值，是绝对长度</td>
+</tr>
+</tbody>
+</table>
+<h3 id="字母间隔"><a href="#字母间隔" class="headerlink" title="字母间隔"></a>字母间隔</h3><p>letter-spacing与word-spacing类似，区别是字母间隔修改的是字符或字母之间的间隔</p>
+<h3 id="间隔和对齐"><a href="#间隔和对齐" class="headerlink" title="间隔和对齐"></a>间隔和对齐</h3><p>word-spacing的值可能受text-align属性值的影响。如果一个元素是两端对齐的，字母和字之间的空间可能会调整，以便文本在整行中刚好放下，这可能又会改变创作人员声明的字和字母间隔。若指定了字母间隔，则只改变字间隔。</p>
+<h2 id="文本转换"><a href="#文本转换" class="headerlink" title="文本转换"></a>文本转换</h2><p>text-transform属性处理文本的大小写</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>text-transform</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>uppercase \</td>
+<td>lowercase \</td>
+<td>capitalize \</td>
+<td>none \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>uppercase和lowercase将文本转化为全大／小写，capitalize将文本转化为单词首字母大写</p>
+<h2 id="文本装饰"><a href="#文本装饰" class="headerlink" title="文本装饰"></a>文本装饰</h2><p>text-decoration属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>text-decoration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>[ underline \</td>
+<td>\</td>
+<td>overline \</td>
+<td>\</td>
+<td>line-through \</td>
+<td>\</td>
+<td>blink ] \</td>
+<td>none \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>underline／overline给文本加下／上划线，line-through给文本加一根贯穿线，blink会让文本闪烁</p>
+<h3 id="怪异的装饰"><a href="#怪异的装饰" class="headerlink" title="怪异的装饰"></a>怪异的装饰</h3><p>text-decoration不能继承，意味着文本上画的任何装饰线（上下划线和贯穿线）与父元素的颜色相同，即使后代元素本身有其他颜色，处理一般使用覆盖（为后代元素声明不同装饰）</p>
+<h2 id="文本阴影"><a href="#文本阴影" class="headerlink" title="文本阴影"></a>文本阴影</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>text-shadow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>none \</td>
+<td>[ <color> \</color></td>
+<td>\</td>
+<td><length><length><length>? , ]* [ <color> \</color></length></length></length></td>
+<td>\</td>
+<td><length><length><length>? ] \</length></length></length></td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>none</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>默认情况是文本没有阴影。否值理论上可以定义一个或多个阴影，每个阴影都由一个颜色和3个长度值来定义。前两个长度值确定了阴影和文本的偏移距离，第三个长度可选，定义了阴影的“模糊半径”</p>
+<h2 id="处理空白格"><a href="#处理空白格" class="headerlink" title="处理空白格"></a>处理空白格</h2><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>white-space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>none \</td>
+<td>nowrap \</td>
+<td>pre \</td>
+<td>pre-wrap \</td>
+<td>pre-line \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>white-space可以影响浏览器处理字之间和文本行之间空白格的方式。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>空白符</th>
+<th>换行符</th>
+<th>自动换行</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pre-line</td>
+<td>合并</td>
+<td>保留</td>
+<td>允许</td>
+</tr>
+<tr>
+<td>normal</td>
+<td>合并</td>
+<td>忽略</td>
+<td>允许</td>
+</tr>
+<tr>
+<td>nowrap</td>
+<td>合并</td>
+<td>忽略</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td>pre</td>
+<td>保留</td>
+<td>保留</td>
+<td>不允许</td>
+</tr>
+<tr>
+<td>pre-wrap</td>
+<td>保留</td>
+<td>保留</td>
+<td>允许</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文本方向"><a href="#文本方向" class="headerlink" title="文本方向"></a>文本方向</h2><p>大部分语言阅读流向都是从左到右，从上到下。不过也不是所有语言都如此</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>ltr \</td>
+<td>rtl \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>ltr</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>有</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>direction属性影响块级元素中文本的书写方向、表中列布局的方向、内容水平填充其元素框的方向，以及两端对齐元素中最后一行的位置。对于行内元素，只有当unicode-bidi属性设置为embed或bidi-override时才会应用direction属性</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>unicode-bidi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">值：</td>
+<td>normal \</td>
+<td>embed \</td>
+<td>bidi-override \</td>
+<td>inherit</td>
+</tr>
+<tr>
+<td style="text-align:center">初始值：</td>
+<td>normal</td>
+</tr>
+<tr>
+<td style="text-align:center">应用于：</td>
+<td>所有元素</td>
+</tr>
+<tr>
+<td style="text-align:center">继承值：</td>
+<td>无</td>
+</tr>
+<tr>
+<td style="text-align:center">计算值：</td>
+<td>根据指定确定</td>
+</tr>
+</tbody>
+</table>
+<p>P164</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>改变文本的外观，除了字体还有很多方法来改变文本的外观。除了一些经典的效果（如下划线），CSS还允许在文本上画线，或穿越文本画线；改变单词和字母间的间隔大小；将段落（或其他块级元素）的首行缩进；将文本左对齐右对齐等等。</p>
+<p>但这些行为有些得到了很好的支持，有些则根本不支持。下一章介绍行布局。</p>
+</div><div class="tags"><a href="/tags/CSS/">CSS</a></div><div class="post-nav"><a class="pre" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a><a class="next" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="https://zmysb.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/CSS/" style="font-size: 15px;">CSS</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十四章学习笔记：非屏幕媒体/">【CSS权威指南】第十四章学习笔记：非屏幕媒体</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十三章学习笔记：用户界面样式/">【CSS权威指南】第十三章学习笔记：用户界面样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十二章学习笔记：列表和生成内容/">【CSS权威指南】第十二章学习笔记：列表和生成内容</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十一章学习笔记：表布局/">【CSS权威指南】第十一章学习笔记：表布局</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第十章学习笔记：浮动和定位/">【CSS权威指南】第十章学习笔记：浮动和定位</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第九章学习笔记：颜色和背景/">【CSS权威指南】第九章学习笔记：颜色和背景</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第八章学习笔记：内边距、边框和外边距/">【CSS权威指南】第八章学习笔记：内边距、边框和外边距</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第七章学习笔记：基本视觉格式化/">【CSS权威指南】第七章学习笔记：基本视觉格式化</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第六章学习笔记：文本属性/">【CSS权威指南】第六章学习笔记：文本属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/【CSS权威指南】第五章学习笔记：字体/">【CSS权威指南】第五章学习笔记：字体</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位招租" target="_blank">广告位招租</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
