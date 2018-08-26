@@ -33,7 +33,7 @@
 <h2 id="2-3-文档模式"><a href="#2-3-文档模式" class="headerlink" title="2.3 文档模式"></a>2.3 文档模式</h2><p>文档模式(doctype)：混杂模式、标准模式。通过声明不同文档模式影响浏览器行为：主要影响CSS内容的呈现，一些情况下也影响JavaScript的解释执行。</p>
 <p>没有文档声明类型，浏览器默认开启混杂模式。开启标准模式：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span>  //HTML5标准</span><br></pre></td></tr></table></figure>
-<h2 id="2-4-noscript元素"><a href="#2-4-noscript元素" class="headerlink" title="2.4 noscript元素"></a>2.4 noscript元素</h2><p>浏览器不支持或未开启脚本时使用<noscript>元素，会显示该元素标签内的内容。启用了脚本的浏览器中，这个元素永远不会显示，尽管它是页面的一部分</noscript></p>
+<h2 id="2-4-noscript元素"><a href="#2-4-noscript元素" class="headerlink" title="2.4 noscript元素"></a>2.4 noscript元素</h2><p>浏览器不支持或未开启脚本时使用noscript元素，会显示该元素标签内的内容。启用了脚本的浏览器中，这个元素永远不会显示，尽管它是页面的一部分</p>
 <h2 id="2-5-小结"><a href="#2-5-小结" class="headerlink" title="2.5 小结"></a>2.5 小结</h2><p>把JavaScript插入到HTML页面中要使用script元素。使用这个元素可以把JavaScript嵌入到HTML页面中，让脚本和标记混合在一起；也可以包含外部的JavaScript文件，要注意的有：</p>
 <ul>
 <li>在包含外部JavaScript文件时，必须将src属性设置为指向相应文件的URI。这个文件既可以是与包含它的页面位于同一个服务器上的文件，也可以是其他任何域中的文件</li>
