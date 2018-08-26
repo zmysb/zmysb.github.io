@@ -1,260 +1,119 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【JavaScript权威指南】引用类型 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【JavaScript权威指南】引用类型</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【JavaScript权威指南】引用类型</h1><div class="post-meta">Aug 25, 2018<span> | </span><span class="category"><a href="/categories/前端/">前端</a><a href="/categories/前端/读书笔记/">读书笔记</a></span></div><div class="post-content"><p>描述所有语言的工作原理，描述的内容涵盖语法、操作符、数据类型、内置功能等用于构建复杂解决方案的基本概念。ECMA-262通过ECMAScript的伪语言描述了JavaScript的所有这些基本概念</p>
-<h2 id="3-1-语法"><a href="#3-1-语法" class="headerlink" title="3.1 语法"></a>3.1 语法</h2><p>ECMAScript的语法大量借鉴C以及其他类C语言（如Java和Perl）的语法</p>
-<h3 id="3-1-1-区分大小写"><a href="#3-1-1-区分大小写" class="headerlink" title="3.1.1 区分大小写"></a>3.1.1 区分大小写</h3><p>ECMAScript中的一切（变量、函数名和操作符）都区分大小写</p>
-<h3 id="3-1-2-标识符"><a href="#3-1-2-标识符" class="headerlink" title="3.1.2 标识符"></a>3.1.2 标识符</h3><p>标识符：变量、函数、属性的名字，或者函数的参数。标识符可以是按照以下格式规则组合起来的一个或多个字符：</p>
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【JavaScript权威指南】引用类型 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【JavaScript权威指南】引用类型</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【JavaScript权威指南】引用类型</h1><div class="post-meta">Aug 25, 2018<span> | </span><span class="category"><a href="/categories/前端/">前端</a><a href="/categories/前端/读书笔记/">读书笔记</a></span></div><div class="post-content"><p>本章内容：</p>
 <ul>
-<li></li>
+<li>使用对象</li>
+<li>创建并操作数组</li>
+<li>理解基本的JavaScript类型</li>
+<li>使用基本类型和基本包装类型</li>
 </ul>
-<h3 id="3-1-3-注释"><a href="#3-1-3-注释" class="headerlink" title="3.1.3 注释"></a>3.1.3 注释</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*多行</span></span><br><span class="line"><span class="comment">注释*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-1-4-严格模式"><a href="#3-1-4-严格模式" class="headerlink" title="3.1.4 严格模式"></a>3.1.4 严格模式</h3><p>ECMAScript 5 引入了严格模式的概念，要在整个脚本中启用严格模式，在顶部添加：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="3-1-5-语句"><a href="#3-1-5-语句" class="headerlink" title="3.1.5 语句"></a>3.1.5 语句</h3><p>ECMAScript中语句以分号结尾；控制语句等使用{代码块}</p>
-<h2 id="3-2-关键字和保留字"><a href="#3-2-关键字和保留字" class="headerlink" title="3.2 关键字和保留字"></a>3.2 关键字和保留字</h2><p>ECMA-262描述了一组有特定用途的关键字，可以用于表示控制语句的开始或结束，或者用于执行特定操作等。不能用作标识符</p>
-<p>还描述了另外一组不能用作标识符的保留字，暂时无用途</p>
-<h2 id="3-3-变量"><a href="#3-3-变量" class="headerlink" title="3.3 变量"></a>3.3 变量</h2><p>ECMAScript的变量是松散类型的，可以用来保存任何类型的数据</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a; <span class="comment">//定义变量</span></span><br><span class="line">a=<span class="number">100</span>; <span class="comment">//为变量赋值</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">100</span>; <span class="comment">//定义时赋值</span></span><br></pre></td></tr></table></figure>
-<p>使用var操作符定义的变量将成为该变量的作用域中的局部变量</p>
-<h2 id="3-4-数据类型"><a href="#3-4-数据类型" class="headerlink" title="3.4 数据类型"></a>3.4 数据类型</h2><p>ECMAScript有5种简单数据类型（基本数据类型）：Undefined、Null、Boolean、Number和String；和一种复杂数据类型Object：一组无序的键值对</p>
-<p>ECMAScript数据具有动态性</p>
-<h3 id="3-4-1-typeof-操作符"><a href="#3-4-1-typeof-操作符" class="headerlink" title="3.4.1 typeof 操作符"></a>3.4.1 typeof 操作符</h3><p>使用typeof【操作符】（不是函数）可以检测给定变量或值（数值字面量）的数据类型</p>
-<h3 id="3-4-2-Undefined类型"><a href="#3-4-2-Undefined类型" class="headerlink" title="3.4.2 Undefined类型"></a>3.4.2 Undefined类型</h3><p>Undefined类型只有一个值，即特殊的undefined。使用var声明变量但未对齐加以初始化时，这个变量的值即undefined</p>
-<p>未初始化的变量和未声明的变量通过typeof都会返回undefined，所以显示地初始化变量是明智的选择</p>
-<h3 id="3-4-3-Null类型"><a href="#3-4-3-Null类型" class="headerlink" title="3.4.3 Null类型"></a>3.4.3 Null类型</h3><p> Null类型是第二个只有一个值的数据类型，这个特殊的值是null。逻辑上它表示一个空对象指针（typeof操作符检测null会返回“object”）</p>
-<p>如果定义的变量准备在将来用于保存对象，最好初始化为null</p>
-<h3 id="3-4-4-Boolean类型"><a href="#3-4-4-Boolean类型" class="headerlink" title="3.4.4 Boolean类型"></a>3.4.4 Boolean类型</h3><p>Boolean类型只有两个字面值：true和false。但ECMAScript中所有类型的值都有与这两个值等价的值，要将一个值转化为对应的Boolean值可以调用转型函数Boolean()，转换规则如下：</p>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>转换为true的值</th>
-<th>转换为false的值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Boolean</td>
-<td>true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>String</td>
-<td>任何非空字符串</td>
-<td>“”(空字符串)</td>
-</tr>
-<tr>
-<td>Number</td>
-<td>任何非零数字值（包括无穷大）</td>
-<td>0和NaN</td>
-</tr>
-<tr>
-<td>Object</td>
-<td>任何对象</td>
-<td>null</td>
-</tr>
-<tr>
-<td>Undefined</td>
-<td>n/a</td>
-<td>undefined</td>
-</tr>
-</tbody>
-</table>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"hello"</span></span><br><span class="line"><span class="keyword">if</span> (a)&#123;                     <span class="comment">//控制流语句自动执行Boolean转换</span></span><br><span class="line">    alert(<span class="string">"value is true"</span>);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-4-5-Number类型"><a href="#3-4-5-Number类型" class="headerlink" title="3.4.5 Number类型"></a>3.4.5 Number类型</h3><p>Number类型使用 IEEE754格式来表示整数和浮点数。ECMAScript定义了不同的数值字面量格式：十进制、八进制（第一位必须是0）、十六进制（第一位必须是0x）</p>
-<h4 id="1、浮点数值"><a href="#1、浮点数值" class="headerlink" title="1、浮点数值"></a>1、浮点数值</h4><p>数值中必须包含小数点，且小数点后必须至少有一位数字。最高精度为17个小数，算数运算时有精度误差</p>
-<h4 id="2、数值范围"><a href="#2、数值范围" class="headerlink" title="2、数值范围"></a>2、数值范围</h4><p>ECMAScript能够表示的最小／大数值存在Number.MIN_VALUE（5e-324）／Number.MAX_VALUE中（1.797693…e+308）。如果某次计算的结果超过了这个范围，数值将被自动转换成特殊的Infinity 值，无法参与下一次的计算</p>
-<h4 id="3、NaN"><a href="#3、NaN" class="headerlink" title="3、NaN"></a>3、NaN</h4><p> NaN，即非数值是一个特殊的数值，用于表示一个本来要返回数值的操作数未返回数值的情况（例除零）</p>
-<p>NaN有两个特点，</p>
+<p>引用类型的值（对象）是引用类型的一个实例。在ECMAScript中，<code>引用数类型</code>是一种数据结构，用于将数据和功能组织在一起。有时候也被称为<code>对象定义</code>，因为它们描述的是一类对象所具有的属性和方法。</p>
+<p>如前所述，对象是某个特定引用类型的实例。新对象是使用new操作符后跟一个构造函数来创建的。构造函数本身就是一个函数，只不过该函数是出于创建新对象的目的而定义的。<a id="more"></a></p>
+<h2 id="5-1-Object类型"><a href="#5-1-Object类型" class="headerlink" title="5.1 Object类型"></a>5.1 Object类型</h2><p>创建Object实例的方式有两种，第一种就是上面new操作符后跟object构造函数；另一种是使用对象字面量表示法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name : <span class="string">"jack"</span>,   </span><br><span class="line">    age = <span class="number">29</span>    <span class="comment">//属性名会自动转换为字符串 如“age”</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>【对象字面量是向函数传递大量可选参数的首选方式。最好的做法是对那些必须值使用命名参数，而使用字面量来封装多个可选参数】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayInfo</span>(<span class="params">args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> output = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> args.name == <span class="string">'string'</span>)&#123;</span><br><span class="line">        ooutput += <span class="string">'name:'</span> + args.name + <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> args.name == <span class="string">'number'</span>)&#123;</span><br><span class="line">        ooutput += <span class="string">'age:'</span> + args.age + <span class="string">'\n'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    alert(output);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">displayInfo(&#123;</span><br><span class="line">    name: <span class="string">'Nicholas'</span>,</span><br><span class="line">    age: <span class="number">29</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">displayInfo(&#123;</span><br><span class="line">    name: <span class="string">'Greg'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>访问对象属性可以用点表示法也可以用方括号表示法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alert(person.name);</span><br><span class="line">alert(person[<span class="string">"name"</span>]);    <span class="comment">//优势是可以通过变量来访问属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> propertyName = <span class="string">"name"</span>;   </span><br><span class="line">alert(person[propertyName]);</span><br></pre></td></tr></table></figure>
+<p>除非属性名中有导致语法错误的字符或空格只有使用方括号可以访问，一般建议使用点表示法</p>
+<h2 id="5-2-Array类型"><a href="#5-2-Array类型" class="headerlink" title="5.2 Array类型"></a>5.2 Array类型</h2><p>Array类型与其他语数组不同之处在于，ECMAScript数组的每一项可以保存任何列别的数据。创建数组的基本方式有两种，第一种是使用Array构造函数: new可省略</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">20</span>);    <span class="comment">//可以预先传入项数，自动变为length值</span></span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>);</span><br></pre></td></tr></table></figure>
+<p>第二种基本方式是使用数组字面量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [];</span><br><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>];</span><br></pre></td></tr></table></figure>
+<p>数组的项数十种保存在其length属性中，这个属性始终返回0或更大的值</p>
+<h3 id="5-2-1-检测数组"><a href="#5-2-1-检测数组" class="headerlink" title="5.2.1 检测数组"></a>5.2.1 检测数组</h3><p>对于一个网页或者一个全局作用域而言，使用instanceof操作符就能确定某个对象是不是数组。但网页中包含多个框架（全局环境不单一），就会存在两个以上不同版本的Array构造函数，此时可以用Array.isArray()方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (value <span class="keyword">instanceof</span> <span class="built_in">Array</span>) &#123;</span><br><span class="line">    <span class="comment">//dosomething</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(value)) &#123;</span><br><span class="line">    <span class="comment">//dosomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-2-转换方法"><a href="#5-2-2-转换方法" class="headerlink" title="5.2.2 转换方法"></a>5.2.2 转换方法</h3><p>之前说到，所有对象都具有toLocaleString()、toString()和valueof()方法。调用数组的toString()和valueof()方法会返回相同的值，即由数组中每个值的字符串形式拼接而成的一个以逗号分隔的字符串。实际上，为了创建这个字符串会调用数组每一项的toString()方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colors = [<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>];</span><br><span class="line">alert(colors.toString());    <span class="comment">//red,blue,green</span></span><br><span class="line">alert(colors.valueof());    <span class="comment">//red,blue,green</span></span><br><span class="line">alert(colors);    <span class="comment">//red,blue,green</span></span><br></pre></td></tr></table></figure>
+<p>alert函数接受字符串参数，后台调用toString()方法，因此会得到与直接调用toString()方法相同的结果</p>
+<p>toLocaleString()稍有不同的地方是，调用的是每一项的toLocaleString()方法而不是toString()</p>
+<h3 id="5-2-3-栈方法"><a href="#5-2-3-栈方法" class="headerlink" title="5.2.3 栈方法"></a>5.2.3 栈方法</h3><p>ECMAScript数组也提供了一种让数组行为类似于其他数据结构的方法。可以表现得像栈一样。</p>
+<p>push()、pop()都是数组的默认方法</p>
+<h3 id="5-2-4-队列方法"><a href="#5-2-4-队列方法" class="headerlink" title="5.2.4 队列方法"></a>5.2.4 队列方法</h3><p>push()、shift() 正向</p>
+<p>pop()、unshift()反向</p>
+<h3 id="5-2-5-重排序方法"><a href="#5-2-5-重排序方法" class="headerlink" title="5.2.5 重排序方法"></a>5.2.5 重排序方法</h3><p>reverse()、sort()（会调用每个数组项的toString()方法，然后比较【字符串】不是数值！！！不过sort函数可以传入【比较函数】），这两个方法返回的是【经过排序后的数组】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> values = [<span class="number">0</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>];</span><br><span class="line">alert(values.sort());    <span class="comment">//0,1,10,15,5 因为比较的是字符串</span></span><br></pre></td></tr></table></figure>
+<p>比较函数接受两个参数，如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个参数之后则返回一个正数:一个适用大多数数据类型的比较函数（升序）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1,value2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (value1 &lt; value2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (value1 &gt; value2) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> values = [<span class="number">0</span>,<span class="number">15</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">1</span>];</span><br><span class="line">values.sort(compare);    <span class="comment">//关键</span></span><br><span class="line">alert(values);     <span class="comment">//0,1,5,10,15</span></span><br></pre></td></tr></table></figure>
+<p>对于数值类型或其valueof()方法会返回数值类型的对象类型，可以用一个更简单的比较函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">value1,value2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value2-value1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-6-操作方法"><a href="#5-2-6-操作方法" class="headerlink" title="5.2.6 操作方法"></a>5.2.6 操作方法</h3><p>concat()：基于当前数组中的所有项创建一个新数组。先创建一个当前数据的副本，再将参数添加到结果数组的末尾，原数组不变</p>
+<p>slice()：基于当前数组中的一个或多个项创建一个新数组。接受参数为返回项的位置，原数组不变</p>
+<p>splice()：基本是最强大的数组方法了，主要用途是向数组的中部插入项，该方法适中都会返回一个数组，包含从原数组中删除的项（没删除就返回空）。使用方式有：</p>
 <ul>
-<li>任何涉及到NaN的操作（例NaN／10）都会返回NaN</li>
-<li>NaN与任何值都不相等</li>
+<li>删除：删除任意数量的项splice(起始项，项数)</li>
+<li>插入：向指定位置插入任意数量的项splice(起始位置，0（要删除的项数），要插入的项)</li>
+<li>替换：向指定位置插入任意数量的项，同时删除任意数量的项splice(起始位置，要删除的项数，要插入的项)</li>
 </ul>
-<p>ECMAScript针对这两个特点定义了isNaN()函数，接受任何类型的参数，判断是否“不是数值”。接受到一个值之后会尝试将这个值转换为数值，任何不能转换为数值的值都会导致这个函数返回NaN:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>))     <span class="comment">//true</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="number">10</span>))      <span class="comment">//false（10是一个数值）</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">'10'</span>))    <span class="comment">//false（可以被转换成数值10）</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="string">'blue'</span>))  <span class="comment">//true（不能被转换为数值）</span></span><br><span class="line">alert(<span class="built_in">isNaN</span>(<span class="literal">true</span>))    <span class="comment">//false（可以被转换成数值1）</span></span><br></pre></td></tr></table></figure>
-<p>【isNaN()也能用于对象】：首先调用对象的valueof()方法，确定是否可以转换为数值；若不能则基于这个返回值调用toString()方法，再测试返回值</p>
-<h4 id="4、数值转换"><a href="#4、数值转换" class="headerlink" title="4、数值转换"></a>4、数值转换</h4><p>有3个函数可以把非数值转换为数值：Number()、parseInt()、parseFloat()。第一个转型函数Number()可以用于任何数据类型，另外两个专门用于字符串转换成数值。</p>
-<p>转换规则：</p>
+<h3 id="5-2-7-位置方法"><a href="#5-2-7-位置方法" class="headerlink" title="5.2.7 位置方法"></a>5.2.7 位置方法</h3><p>比较时使用全等操作符</p>
+<p>indexOf(要查找的项，查找起点（可选）) ：从头开始</p>
+<p>lastIndexOf(要查找的项，查找起点（可选）)：从尾开始</p>
+<h3 id="5-2-7迭代方法"><a href="#5-2-7迭代方法" class="headerlink" title="5.2.7迭代方法"></a>5.2.7迭代方法</h3><p>ECMAScript为数组定义了5个迭代方法。每个方法都接收两个参数：要在每一项上运行的函数和（可选的）运行该函数的作用域对象——影响this的值。传入这些方法中的函数会接收三个参数：数组项的值、该项在数组中的位置、和数组对象本身。根据使用方法不同，这个函数执行后的返回值可能会也可能不会影响访问的返回值</p>
 <ul>
-<li></li>
-<li></li>
+<li>every()：对数组中的每一项运行给定函数，如果该函数每一项都返回true，则返回true</li>
+<li>filter()：对数组中的每一项运行给定函数，返回该函数返回true的项组成的数组</li>
+<li>forEach()：对数组中的每一项运行给定函数。这个方法没有返回值</li>
+<li>map()：对数组中的每一项运行给定函数，返回每次函数调用结果组成的数组</li>
+<li>some()：对数组中的每一项运行给定函数，如果该函数任一项返回true，则返回true</li>
 </ul>
-<h3 id="3-4-6-String类型"><a href="#3-4-6-String类型" class="headerlink" title="3.4.6 String类型"></a>3.4.6 String类型</h3><p>String类型用于表示零或多个16位  Unicode字符组成的字符序列，即字符串。可由单／双引号表示</p>
-<h4 id="1、字符字面量"><a href="#1、字符字面量" class="headerlink" title="1、字符字面量"></a>1、字符字面量</h4><p>String数据类型包含一些特殊的字符字面量，也叫转义序列，用于表示非打印字符或其他用途。</p>
-<table>
-<thead>
-<tr>
-<th>字面量</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\n</td>
-<td>换行</td>
-</tr>
-<tr>
-<td>\t</td>
-<td>制表</td>
-</tr>
-<tr>
-<td>\b</td>
-<td>空格</td>
-</tr>
-<tr>
-<td>\r</td>
-<td>回车</td>
-</tr>
-<tr>
-<td>\f</td>
-<td>进纸</td>
-</tr>
-<tr>
-<td>\\</td>
-<td>斜杠</td>
-</tr>
-<tr>
-<td>\’</td>
-<td>单引号</td>
-</tr>
-<tr>
-<td>\”</td>
-<td>双引号</td>
-</tr>
-<tr>
-<td>\xnn</td>
-<td>以十六进制代码nn表示的一个字符</td>
-</tr>
-<tr>
-<td>\unnn</td>
-<td>以十六进制代码nnnn表示的一个Unicode字符</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2、字符串的特点"><a href="#2、字符串的特点" class="headerlink" title="2、字符串的特点"></a>2、字符串的特点</h4><p>ECMAScript中字符串是不可变的，字符串一旦创建，它的值就不能改变。要改变某个变量保存的字符串，首先要销毁原来的字符串，在用另一个包含新值的字符串填充该变量</p>
-<h3 id="3、转换为字符串"><a href="#3、转换为字符串" class="headerlink" title="3、转换为字符串"></a>3、转换为字符串</h3><p>把一个值转换为一个字符串有两种方式，第一种是几乎所有值都有的toString()方法（章5讨论这个方法的特点），这个方法返回相应值的字符串表现。数值、布尔值、对象和字符串值都有这个方法，但null和undefined值没有</p>
-<p>在不知道要转换的值是不是null或undefined的情况下，还可以使用转型函数String()，这个函数能够将任何类型的值转换为字符串</p>
-<p>【要把某个值转换为字符串，还可以使用加号操作符把它与一个字符串加在一起（见3.5节）】</p>
-<h3 id="3-4-7-Object类型"><a href="#3-4-7-Object类型" class="headerlink" title="3.4.7 Object类型"></a>3.4.7 Object类型</h3><p>ECMAScript中的对象其实就是一组数据和功能的集合。对象可以通过执行new操作符后跟要创建的对象类型的名称来创建。而创建Object类型的实例并为其添加属性和（或）方法，就可以创建自定义对象</p>
-<p>Object的每个实例都具有下列属性和方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> everyResult = numbers.every(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (item &gt; <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line">alert(everyResult);    <span class="comment">//false</span></span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="keyword">var</span> filterResult = numbers.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (item &gt; <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line">alert(filterResult);    <span class="comment">//[3,4,5,4,3]</span></span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="keyword">var</span> mapResult = numbers.filter(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> item * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line">alert(mapResult);    <span class="comment">//[2,4,6,8,10,8,6,4,2]</span></span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="keyword">var</span> forEachResult = numbers.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//dosomething</span></span><br><span class="line">&#125;);</span><br><span class="line">-------------------------------------------------------------</span><br><span class="line"><span class="keyword">var</span> someResult = numbers.some(<span class="function"><span class="keyword">function</span>(<span class="params">item,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (item &gt; <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line">alert(someResult);    <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>这些方法返回的数组的每一项都是在原始数组中对应项上运行传入函数的结果。</p>
+<h3 id="5-2-8-缩小方法"><a href="#5-2-8-缩小方法" class="headerlink" title="5.2.8 缩小方法"></a>5.2.8 缩小方法</h3><p>ECMAScript为数组定义了2个缩小数组的方法：reduce()和reduceRight()。这两个方法都会迭代数组所有的项，然后构建一个最终返回的值。其中reduce()方法从数组第一项开始，reduceRight()从最后一项。</p>
+<p>每个方法都接收两个参数：要在每一项上运行的函数和（可选的）作为缩小基础的初始值。传入这些方法中的函数会接收四个参数：前一个值、当前值、项的索引和数组对象本身。这个函数返回的任何值都会作为第一个参数自动传给下一项。第一次迭代发生在数组的第二项上，因此第一个参数是数组的第一项，第二个参数就是数组的第二项。</p>
 <ul>
-<li>Constructor：保存着用于创建当前对象的函数（构造函数）</li>
-<li>hasOwnProperty(prorertyName)：检测给定的属性在当前对象实例中是否存在（属性名必须以字符串形式传入）</li>
-<li>isPrototypeOf(object)：用于检查传入的对象是否是另一个对象的原型（章5讨论）</li>
-<li>propertyIsEnumerable(propertyName)：用于检查是否能够用for-in语句（本章后面会讨论）来枚举</li>
-<li>toLocaleString()：返回对象的字符串表示，该字符串与执行环境的地区对应</li>
-<li>toString()：返回对象的字符串表示</li>
-<li>valueOf()：返回对象的字符串、数值或布尔值表示。通常与toString ()方法的返回值相同</li>
+<li>reduce()</li>
+<li>reduceRight()</li>
 </ul>
-<p>在ECMAScript中Object是所有对象的基础。所有的对象都具有这些基本的属性和方法。章5和章6将详细介绍Objetc与其他对象的关系</p>
-<h2 id="3-5-操作符"><a href="#3-5-操作符" class="headerlink" title="3.5 操作符"></a>3.5 操作符</h2><p>ECMA-262描述了一组用于操作数据值的操作符，包括算数操作符（加号、减号）、位操作符、关系操作符和相等操作符。ECMAScript操作符的与众不同之处在于能够接受很多值，例如字符串、数字值、布尔值、甚至对象。不过在应用与对象时，相应的操作符通常会调用对象的valueof()和（或）toString()方法，以便取得可以操作的值</p>
-<h3 id="3-5-1-一元操作符"><a href="#3-5-1-一元操作符" class="headerlink" title="3.5.1 一元操作符"></a>3.5.1 一元操作符</h3><p>只能操作一个值的操作符</p>
-<h4 id="1、递增和递减操作符"><a href="#1、递增和递减操作符" class="headerlink" title="1、递增和递减操作符"></a>1、递增和递减操作符</h4><h4 id="2、一元加和减操作符"><a href="#2、一元加和减操作符" class="headerlink" title="2、一元加和减操作符"></a>2、一元加和减操作符</h4><h3 id="3-5-2-位操作符"><a href="#3-5-2-位操作符" class="headerlink" title="3.5.2 位操作符"></a>3.5.2 位操作符</h3><h4 id="1、按位非（NOT）"><a href="#1、按位非（NOT）" class="headerlink" title="1、按位非（NOT）"></a>1、按位非（NOT）</h4><h4 id="2、按位与（AND）"><a href="#2、按位与（AND）" class="headerlink" title="2、按位与（AND）"></a>2、按位与（AND）</h4><h4 id="3、按位或（OR）"><a href="#3、按位或（OR）" class="headerlink" title="3、按位或（OR）"></a>3、按位或（OR）</h4><h4 id="4、按位异或（XOR）"><a href="#4、按位异或（XOR）" class="headerlink" title="4、按位异或（XOR）"></a>4、按位异或（XOR）</h4><h4 id="5、左移"><a href="#5、左移" class="headerlink" title="5、左移"></a>5、左移</h4><h4 id="6、有符号的右移"><a href="#6、有符号的右移" class="headerlink" title="6、有符号的右移"></a>6、有符号的右移</h4><h4 id="7、无符号右移"><a href="#7、无符号右移" class="headerlink" title="7、无符号右移"></a>7、无符号右移</h4><h3 id="3-5-3-布尔操作符"><a href="#3-5-3-布尔操作符" class="headerlink" title="3.5.3 布尔操作符"></a>3.5.3 布尔操作符</h3><p>用于测试两个值的关系</p>
-<h4 id="1、逻辑非"><a href="#1、逻辑非" class="headerlink" title="1、逻辑非"></a>1、逻辑非</h4><p>逻辑非操作符（!）首先会把它的操作数转换成一个布尔值，然后对其求反。规则是：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例 利用reduce()方法求数组中所有值之和</span></span><br><span class="line"><span class="keyword">var</span> values = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> sum = values.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,cur,index,array</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;)</span><br><span class="line">alert(sum);    <span class="comment">//15</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-3-Data类型"><a href="#5-3-Data类型" class="headerlink" title="5.3 Data类型"></a>5.3 Data类型</h2><p>ECMAScript中的Date类型使用自UTC 1970年1月1日午夜（零时）开始经过的毫秒数来保存日期。要创建一个日期对象，使用new操作符合Date构造函数即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+<p>PS:<a href="https://www.baidu.com/s?wd=%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%E6%A0%87%E5%87%86%E6%97%B6%E9%97%B4&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">格林尼治标准时间</a>（GMT，旧译“格林威治平均时间”或“<a href="https://www.baidu.com/s?wd=%E6%A0%BC%E6%9E%97%E5%A8%81%E6%B2%BB%E6%A0%87%E5%87%86%E6%97%B6%E9%97%B4&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">格林威治标准时间</a>”）是指位于伦敦郊区的皇家<a href="https://www.baidu.com/s?wd=%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%E5%A4%A9%E6%96%87%E5%8F%B0&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">格林尼治天文台</a>的标准时间，因为<a href="https://www.baidu.com/s?wd=%E6%9C%AC%E5%88%9D%E5%AD%90%E5%8D%88%E7%BA%BF&amp;tn=SE_PcZhidaonwhc_ngpagmjz&amp;rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">本初子午线</a>被定义在通过那里的经线。</p>
+<p>协调世界时(UTC)  英文：Coordinated Universal Time ，别称：世界统一时间，世界标准时间国际协调时间， 协调世界时，又称世界统一时间，世界标准时间，国际协调时间，简称UTC。它从英文“Coordinated Universal Time”／法文“Temps Universel Cordonné”而来。</p>
+<h3 id="5-3-1-继承的方法"><a href="#5-3-1-继承的方法" class="headerlink" title="5.3.1 继承的方法"></a>5.3.1 继承的方法</h3><p>与其他引用类型一样，Date类型也重写了toLocaleString()、toString()、valueOf()方法。toLocaleString()按照与浏览器设置的地区响应的格式返回日期时间但不带时区信息；toLocaleString()按照与浏览器设置的地区响应的格式返回日期时间带时区信息；valueOf()则是返回日期的毫秒表示</p>
+<h3 id="5-3-2-日期格式方法"><a href="#5-3-2-日期格式方法" class="headerlink" title="5.3.2 日期格式方法"></a>5.3.2 日期格式方法</h3><p>Date类型还有一些专门用于将日期格式化为字符串的方法：</p>
 <ul>
-<li>操作数为对象，返回false</li>
-<li>空字符串，返回true</li>
-<li>非空字符串，返回false</li>
-<li>数值0，返回true</li>
-<li>任意非0数值（包括Infinity），返回false</li>
-<li>null／NaN／undefined，返回true</li>
+<li>toDateString()——以特定于实现的格式显示星期几、月、日、年</li>
+<li>toTimeString()——以特定于实现的格式显示时、分、秒和时区</li>
+<li>toLocaleDateString()——以特定于地区的格式显示星期几、月、日、年</li>
+<li>toLocaleTimeString()——以特定于地区的格式显示时、分、秒和时区</li>
+<li>toUTCString()——以特定于实现的格式显示完整的UTC日期</li>
 </ul>
-<h4 id="2、逻辑与"><a href="#2、逻辑与" class="headerlink" title="2、逻辑与"></a>2、逻辑与</h4><p>逻辑与操作符（&amp;&amp;）有两个操作数，对布尔值的真值表：</p>
-<table>
-<thead>
-<tr>
-<th>第一个操作数</th>
-<th>第二个操作数</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>true</td>
-<td>true</td>
-<td>true</td>
-</tr>
-<tr>
-<td>true</td>
-<td>false</td>
-<td>false</td>
-</tr>
-<tr>
-<td>false</td>
-<td>true</td>
-<td>false</td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-</tr>
-</tbody>
-</table>
-<p>还可用于其他任何类型的操作书。有一个操作数不是布尔值的情况下，不一定返回布尔值，规则是：</p>
+<h3 id="5-3-3-日期／时间组件方法-p102"><a href="#5-3-3-日期／时间组件方法-p102" class="headerlink" title="5.3.3 日期／时间组件方法 p102"></a>5.3.3 日期／时间组件方法 p102</h3><h2 id="5-4-RegExp类型"><a href="#5-4-RegExp类型" class="headerlink" title="5.4 RegExp类型"></a>5.4 RegExp类型</h2><p>ECMAScript通过RegExp类型来支持正则表达式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expression = <span class="regexp">/ pattern /</span> flags ;</span><br></pre></td></tr></table></figure>
+<p>其中的模式（pattern）部分可以式任何简单或复杂的正则表达式，可以包含字符类、限定符、分组、向前查找以及反向引用。每个正则表达式都可带有一个或多个标志（flags），用以标明正则表达式的行为。正则表达式的匹配模式支持下列3个标志：</p>
 <ul>
-<li>第一个操作数是对象，返回第二个操作数</li>
-<li>第二个操作数是对象，只在第一个操作数求值结果为true的情况下返回该对象</li>
-<li>两个操作数都是对象，返回第二个操作数</li>
-<li>有一个是null／NaN／undefined，返回null／NaN／undefined</li>
+<li>g：表示全局模式，即模式将被应用于所有字符串，而非在发现第一个匹配项时立即停止；</li>
+<li>i：表示不区分大小写模式，即在确定匹配项时忽略模式与字符串的大小写</li>
+<li>m：表示多行模式，即在到达一行文本末尾时还会继续查找下一行中是否存在与模式匹配的项</li>
 </ul>
-<p>逻辑与是一个【短路操作符】，第一个操作数为false直接返回false</p>
-<h4 id="3、逻辑或"><a href="#3、逻辑或" class="headerlink" title="3、逻辑或"></a>3、逻辑或</h4><p>逻辑或操作符（||）有两个操作数，对布尔值的真值表：</p>
-<table>
-<thead>
-<tr>
-<th>第一个操作数</th>
-<th>第二个操作数</th>
-<th>结果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>true</td>
-<td>true</td>
-<td>true</td>
-</tr>
-<tr>
-<td>true</td>
-<td>false</td>
-<td>true</td>
-</tr>
-<tr>
-<td>false</td>
-<td>true</td>
-<td>true</td>
-</tr>
-<tr>
-<td>false</td>
-<td>false</td>
-<td>false</td>
-</tr>
-</tbody>
-</table>
-<p>与逻辑与相似，有一个操作数不是布尔值的情况下，不一定返回布尔值，规则是：</p>
-<ul>
-<li>第一个操作数是对象，返回第一个操作数</li>
-<li>第一个操作数求值结果为false，返回第二个操作数</li>
-<li>两个操作数都是对象，返回第一个操作数</li>
-<li>有一个是null／NaN／undefined，返回null／NaN／undefined</li>
-</ul>
-<p>逻辑与是一个【短路操作符】，第一个操作数为true直接返回true</p>
-<h3 id="3-5-4-乘性操作符"><a href="#3-5-4-乘性操作符" class="headerlink" title="3.5.4 乘性操作符"></a>3.5.4 乘性操作符</h3><p>ECMAScript定义了三个乘性操作符：乘法（*）、除法（／）和求模（%）。操作数在非数值的轻快小会执行自动的类型转换（Number()转型函数）</p>
-<h3 id="3-5-5-加性操作符"><a href="#3-5-5-加性操作符" class="headerlink" title="3.5.5 加性操作符"></a>3.5.5 加性操作符</h3><p>加法（+）和减法（-）</p>
-<h3 id="3-5-6-关系操作符"><a href="#3-5-6-关系操作符" class="headerlink" title="3.5.6 关系操作符"></a>3.5.6 关系操作符</h3><p>小于（&lt;）、大于（&gt;）、小于等于（&lt;=）、大于等于（&gt;=）</p>
-<h3 id="3-5-7-相等操作符"><a href="#3-5-7-相等操作符" class="headerlink" title="3.5.7 相等操作符"></a>3.5.7 相等操作符</h3><h4 id="1、相等和不相等"><a href="#1、相等和不相等" class="headerlink" title="1、相等和不相等"></a>1、相等和不相等</h4><p>== 和!= ：先转换再比较</p>
-<h4 id="2、全等和不全等"><a href="#2、全等和不全等" class="headerlink" title="2、全等和不全等"></a>2、全等和不全等</h4><p>=== 和 ！== : 仅比较不转换</p>
-<h3 id="3-5-8-条件操作符"><a href="#3-5-8-条件操作符" class="headerlink" title="3.5.8 条件操作符"></a>3.5.8 条件操作符</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">variable = boolean_expression ? true_value : false_value;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> max = (num1 &gt; num2) ? num1 : num2;</span><br></pre></td></tr></table></figure>
-<h3 id="3-5-9-赋值操作符"><a href="#3-5-9-赋值操作符" class="headerlink" title="3.5.9 赋值操作符"></a>3.5.9 赋值操作符</h3><p>=表示赋值操作符，在其前加算术操作符可以完成复合复制操作符</p>
-<h3 id="3-5-10-逗号操作符"><a href="#3-5-10-逗号操作符" class="headerlink" title="3.5.10 逗号操作符"></a>3.5.10 逗号操作符</h3><p>在一条语句中执行多个操作</p>
-<h2 id="3-6-语句"><a href="#3-6-语句" class="headerlink" title="3.6 语句"></a>3.6 语句</h2><p>ECMA-262规定了一组语句（也称为流控制语句），定义了ECMAScript的主要语法。语句通畅使用一个或多个关键字来完成给定任务</p>
-<h3 id="3-6-1-if语句"><a href="#3-6-1-if语句" class="headerlink" title="3.6.1 if语句"></a>3.6.1 if语句</h3><h3 id="3-6-2-do-while语句"><a href="#3-6-2-do-while语句" class="headerlink" title="3.6.2 do-while语句"></a>3.6.2 do-while语句</h3><h3 id="3-6-3-while语句"><a href="#3-6-3-while语句" class="headerlink" title="3.6.3 while语句"></a>3.6.3 while语句</h3><h3 id="3-6-4-for语句"><a href="#3-6-4-for语句" class="headerlink" title="3.6.4 for语句"></a>3.6.4 for语句</h3><h3 id="3-6-5-for-in语句"><a href="#3-6-5-for-in语句" class="headerlink" title="3.6.5 for-in语句"></a>3.6.5 for-in语句</h3><h3 id="3-6-6-label语句"><a href="#3-6-6-label语句" class="headerlink" title="3.6.6 label语句"></a>3.6.6 label语句</h3><h3 id="3-6-7-break和continue语句"><a href="#3-6-7-break和continue语句" class="headerlink" title="3.6.7 break和continue语句"></a>3.6.7 break和continue语句</h3><h3 id="3-6-8-with语句"><a href="#3-6-8-with语句" class="headerlink" title="3.6.8 with语句"></a>3.6.8 with语句</h3><h3 id="3-6-9-switch语句"><a href="#3-6-9-switch语句" class="headerlink" title="3.6.9 switch语句"></a>3.6.9 switch语句</h3><h2 id="3-7-函数"><a href="#3-7-函数" class="headerlink" title="3.7 函数"></a>3.7 函数</h2><p>ECMAScript中函数使用function关键字来声明，后跟一组参数以及函数体</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//语法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span>(<span class="params">arg0,arg1,...,argN</span>)</span>&#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//示例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params">name,message</span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">"hello"</span>+ name + <span class="string">","</span> + message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">sayHi(<span class="string">"Nicholas"</span>,<span class="string">"how are you?"</span>);</span><br></pre></td></tr></table></figure>
-<p>ECMAScript中函数在定义时不必指定是否返回值。实际上，任何函数在任何时候都可以通过return语句后跟要返回的值（可以不跟，返回undefined）来实现返回值</p>
-<h3 id="3-7-1-理解参数"><a href="#3-7-1-理解参数" class="headerlink" title="3.7.1 理解参数"></a>3.7.1 理解参数</h3><p>ECMAScript函数的参数与其他语言有所不同。ECMAScript函数不介意传进来多少个参数，也不在乎传进来的参数是什么数据类型。原因是ECMAScript参数在内部通过arguments对象访问参数数组，从而获取到传递给函数的每一个参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function sayHi()&#123;</span><br><span class="line">    alert(&quot;hello&quot; + arguments[0] + arguments[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>命名的参数只提供便利，不是必须；命名参数的值和arguments对应值保持同步</p>
-<h3 id="3-7-2-没有重载"><a href="#3-7-2-没有重载" class="headerlink" title="3.7.2 没有重载"></a>3.7.2 没有重载</h3><p>因为ECMAScript函数没有签名（接受的参数数量和类型），所以ECMAScript函数不能像传统意义上那样实现重载。在ECMAScript定义了两个名字相同的函数，则改名字只属于后定义的函数</p>
-<p>通过检测函数中传入参数的类型（typeof arguments[n]）和数量（arguments.length）并作出不同的反应，可以模拟方法的重载</p>
-<h2 id="3-8-小结"><a href="#3-8-小结" class="headerlink" title="3.8 小结"></a>3.8 小结</h2></div><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-nav"><a class="pre" href="/2018/08/25/【JavaScript权威指南】面向对象的程序设计/">【JavaScript权威指南】面向对象的程序设计</a><a class="next" href="/2018/08/25/【JavaScript权威指南】变量、作用域和内存问题/">【JavaScript权威指南】变量、作用域和内存问题</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pattern1 = <span class="regexp">/at/g</span>;    <span class="comment">//匹配字符串中所有“at”的实例</span></span><br><span class="line"><span class="keyword">var</span> pattern2 = <span class="regexp">/[bc]at/i</span>;    <span class="comment">//匹配第一个“bat”或“cat”，不区分大小写</span></span><br><span class="line"><span class="keyword">var</span> pattern3 = <span class="regexp">/.at/gi</span>;    <span class="comment">//匹配所有以“at”结尾的3个字符的组合，不区分大小写</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pattern4 = <span class="keyword">new</span> <span class="built_in">RegExp</span> (<span class="string">"[bc]at"</span>,<span class="string">"i"</span>);    <span class="comment">//等同于pattern2</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-4-1-RegExp实例属性"><a href="#5-4-1-RegExp实例属性" class="headerlink" title="5.4.1 RegExp实例属性"></a>5.4.1 RegExp实例属性</h3><h3 id="5-4-2-RegExp实例方法"><a href="#5-4-2-RegExp实例方法" class="headerlink" title="5.4.2 RegExp实例方法"></a>5.4.2 RegExp实例方法</h3><h3 id="5-4-3-RegExp构造函数属性"><a href="#5-4-3-RegExp构造函数属性" class="headerlink" title="5.4.3 RegExp构造函数属性"></a>5.4.3 RegExp构造函数属性</h3><h3 id="5-4-4-模式的局限性"><a href="#5-4-4-模式的局限性" class="headerlink" title="5.4.4 模式的局限性"></a>5.4.4 模式的局限性</h3><h2 id="5-5-Function类型"><a href="#5-5-Function类型" class="headerlink" title="5.5 Function类型"></a>5.5 Function类型</h2><p>ECMAScript函数实际上是对象，每个函数都是Function类型的实例，都和其他引用类型一样具有属性和方法，函数名实际上是一个指向函数对象的指针，不会与某个对象绑定。函数通常是使用函数声明语法定义的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//与上述相等</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Function构造函数，不推荐，因为会解析两次</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'num1'</span>,<span class="string">'num2'</span>,<span class="string">'return num1 + num2'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="5-5-1-没有重载（深入理解）"><a href="#5-5-1-没有重载（深入理解）" class="headerlink" title="5.5.1 没有重载（深入理解）"></a>5.5.1 没有重载（深入理解）</h3><p>将函数名想象为指针，也有助于理解为什么ECMAScript中没有函数重载</p>
+<h3 id="5-5-2-函数声明与函数表达式"><a href="#5-5-2-函数声明与函数表达式" class="headerlink" title="5.5.2 函数声明与函数表达式"></a>5.5.2 函数声明与函数表达式</h3><p>解析器在向执行环境中加载数据时，对函数声明和函数表达式并非一视同仁。解析器会率先读取函数声明，并使其在执行任何代码前可用；而函数表达式，则必须等到解析器执行到它所在的代码行，才会真正被解释执行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">alert(sum(<span class="number">10</span>,<span class="number">10</span>));    <span class="comment">//可以正常运行</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alert(sum(<span class="number">10</span>,<span class="number">10</span>));    <span class="comment">//不可以正常运行</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>除了什么时候可以通过变量访问函数这一点区别之外，函数声明和函数表达式其实是等价的</p>
+<h3 id="5-5-3-作为值的函数"><a href="#5-5-3-作为值的函数" class="headerlink" title="5.5.3 作为值的函数"></a>5.5.3 作为值的函数</h3><p>ECMAScript中函数名本身就是变量，所有函数也可以作为值来使用。不仅可以像传递参数一样把一个函数传递给另一个函数，还可以把一个函数作为另一个函数的结果返回</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeFunction</span>(<span class="params">someFunction,someArgument</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> someFunction(someArgument);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【要访问函数指针而不执行函数的话，必须去掉函数名后面的圆括号】</p>
+<h3 id="5-5-4-函数内部属性"><a href="#5-5-4-函数内部属性" class="headerlink" title="5.5.4 函数内部属性"></a>5.5.4 函数内部属性</h3><p>函数内部有两个特殊对象：argument和this</p>
+<p>argument在章3介绍过，是一个类数组对象，包含着传入函数中的所有参数。它还有一个名叫callee的属性，该属性是一个指针，指向拥有这个argument对象的函数。this引用的是函数据以执行的环境对象。函数对象另一个属性caller，保存着调用当前函数的函数的引用 p115</p>
+<h3 id="5-5-5-函数属性和方法"><a href="#5-5-5-函数属性和方法" class="headerlink" title="5.5.5 函数属性和方法"></a>5.5.5 函数属性和方法</h3><p>ECMAScript的函数是对象，因此函数也有属性和方法</p>
+<p>每个函数包含两个属性：length和prototype。其中length属性表示函数希望接受的命名参数个数。prototype保存所有实例方法（toString()、valueof()等），但它不可枚举</p>
+<p>每个函数都包含两个非继承的方法：apply()和call()。用途都是在特定的作用域中调用函数，实际上等于设置函数体内this对象的值。ECMAScript 5 还定义了一个方法bind()，这个方法会创建一个函数的实例，其this值会被绑定到传给bind()函数的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color = <span class="string">"red"</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123; color = <span class="string">"blue"</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> objectSayColor = sayColor.bind(o);</span><br><span class="line">objectSayColor();    <span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-6-基本包装类型"><a href="#5-6-基本包装类型" class="headerlink" title="5.6 基本包装类型"></a>5.6 基本包装类型</h2><p>为了便于操作基本类型值，ECMAScript还提供了3个特殊的引用类型：Boolean、Number和String。这些类型与本章介绍的其他引用类型相似，但同时也具有各自的基本类型相应的特殊行为。实际上，每当读区一个基本类型值的时候后台就会创建一个对应的基本包装类型的对象，从而让我们能够调用一些方法来操作这些数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="string">"some text"</span>;</span><br><span class="line"><span class="keyword">var</span> s2 = s1.substring(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>基本类型值不是对象，从逻辑上不应有方法，但后台会自动如下处理：</p>
+<ol>
+<li>创建一个String类型的实例</li>
+<li>在实例上调用指定的方法</li>
+<li>销毁实例</li>
+</ol>
+<p>所以以上代码可以想象是执行了下列ECMAScript代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">"some text"</span>);</span><br><span class="line"><span class="keyword">var</span> s2 = s1.substring(<span class="number">2</span>);</span><br><span class="line">s1 = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>引用类型和基本包装类型的主要区别就是对象的生存期。</p>
+<p>不建议显示创建基本包装类型的对象，尽管它们操作基本类型值的能力还是相当重要的，而每个基本包装类型都提供了操作相应值的便捷方法</p>
+<h3 id="5-6-1-Boolean类型"><a href="#5-6-1-Boolean类型" class="headerlink" title="5.6.1 Boolean类型"></a>5.6.1 Boolean类型</h3><h3 id="5-6-2-Number属性"><a href="#5-6-2-Number属性" class="headerlink" title="5.6.2 Number属性"></a>5.6.2 Number属性</h3><h3 id="5-6-3-String属性"><a href="#5-6-3-String属性" class="headerlink" title="5.6.3 String属性"></a>5.6.3 String属性</h3><h2 id="5-7-单体内置对象"><a href="#5-7-单体内置对象" class="headerlink" title="5.7 单体内置对象"></a>5.7 单体内置对象</h2><p>ECMA-262对内置对象的定义是：“由ECMAScript实现提供的、不依赖于宿主环境的对象，这些对象在ECMAScript程序执行前就已经存在了”。开发人员不用显式的实例话内置对象，如Object、Array、String等。ECMA-262还定义了两个单体内置对象：Global和Math</p>
+<h3 id="5-7-1-Global对象"><a href="#5-7-1-Global对象" class="headerlink" title="5.7.1 Global对象"></a>5.7.1 Global对象</h3><h3 id="5-7-2-Math对象"><a href="#5-7-2-Math对象" class="headerlink" title="5.7.2 Math对象"></a>5.7.2 Math对象</h3><h2 id="5-8-小结"><a href="#5-8-小结" class="headerlink" title="5.8 小结"></a>5.8 小结</h2></div><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-nav"><a class="pre" href="/2018/08/25/【JavaScript权威指南】  /">【JavaScript权威指南】变量、作用域和内存问题</a><a class="next" href="/2018/08/25/【JavaScript权威指南】在HTML中使用JavaScript/">【JavaScript权威指南】在HTML中使用JavaScript</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
   owner: 'zmysb',
   repo: 'zmysb.github.io',
   oauth: {
@@ -263,7 +122,7 @@
   },
 })
 gitment.render('container')
-</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/读书笔记/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/影评/" style="font-size: 15px;">影评</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/ES5和ES6的继承/">ES5和ES6的继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】函数表达式/">【JavaScript权威指南】函数表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】面向对象的程序设计/">【JavaScript权威指南】面向对象的程序设计</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】引用类型/">【JavaScript权威指南】引用类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】变量、作用域和内存问题/">【JavaScript权威指南】变量、作用域和内存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】基本概念/">【JavaScript权威指南】基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】在HTML中使用JavaScript/">【JavaScript权威指南】在HTML中使用JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】JavaScript简介/">【JavaScript权威指南】JavaScript简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/css属性的继承、初识值、计算值、当前值、应用值/">css属性的继承、初识值、计算值、当前值、应用值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/21/为了谢耳朵看的stand-by-me/">为了谢耳朵看的stand by me</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 一" target="_blank">广告位 一</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 二" target="_blank">广告位 二</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 三" target="_blank">广告位 三</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/读书笔记/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/影评/" style="font-size: 15px;">影评</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/ES5和ES6的继承/">ES5和ES6的继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】函数表达式/">【JavaScript权威指南】函数表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】变量、作用域和内存问题/">【JavaScript权威指南】变量、作用域和内存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】基本概念/">【JavaScript权威指南】基本概念</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】  /">【JavaScript权威指南】变量、作用域和内存问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】引用类型/">【JavaScript权威指南】引用类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】在HTML中使用JavaScript/">【JavaScript权威指南】在HTML中使用JavaScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/25/【JavaScript权威指南】JavaScript简介/">【JavaScript权威指南】JavaScript简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/css属性的继承、初识值、计算值、当前值、应用值/">css属性的继承、初识值、计算值、当前值、应用值</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/21/为了谢耳朵看的stand-by-me/">为了谢耳朵看的stand by me</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 一" target="_blank">广告位 一</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 二" target="_blank">广告位 二</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 三" target="_blank">广告位 三</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
 if (search_path.length == 0) {
    search_path = 'search.xml';
 }
