@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>【JavaScript权威指南】DOM2和DOM3 | 一零</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">【JavaScript权威指南】DOM2和DOM3</h1><a id="logo" href="/.">一零</a><p class="description">慢速成长中</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">【JavaScript权威指南】DOM2和DOM3</h1><div class="post-meta">Aug 31, 2018<span> | </span><span class="category"><a href="/categories/前端/">前端</a><a href="/categories/前端/读书笔记/">读书笔记</a></span></div><div class="post-content"><p>本章内容：</p>
+<ul>
+<li>DOM2和DOM3的变化</li>
+<li>操作样式的DOM API</li>
+<li>DOM的遍历和范围</li>
+</ul>
+<p>DOM1级主要定义的是HTML和XML文档结构的底层结构。DOM2和DOM3级则在这个结构的基础上引入了更多交互能力，也支持了更高级的XML特性。为此，DOM2和DOM3级分为许多模块（模块之间具有某种关联），分别描述了DOM的某个非常具体的子集。<a id="more"></a>这些模块如下：</p>
+<ul>
+<li>DOM2级核心（DOM Level 2 Core）：在1级核心基础上构建，为节点添加了更多方法和属性。</li>
+<li>DOM2级视图（DOM Level 2 Views）：为文档定义了基于样式信息的不同视图。</li>
+<li>DOM2级事件（DOM Level 2 Events）：说明了如何使用事件与DOM文档交互。</li>
+<li>DOM2级样式（DOM Level 2 Style）：定义了如何以编程方式来访问和改变CSS样式信息。</li>
+<li>DOM2级遍历和范围（DOM Level 2 Travesal and Range）：引入了遍历DOM文档和选择其特定部分的新接口。</li>
+<li>DOM2级HTML（DOM Level 2 HTML）：在1级HTML基础上构建，添加了更多属性、方法和新接口。</li>
+</ul>
+<p>本章探讨除“DOM2级事件”之外的所有模块，“DOM2级事件”模块将在13章进行全面讲解。</p>
+<p>【DOM3级模块又增加了“XPath”模块和“加载和保存”（Load and Save）模块。这些模块将在第18章讨论】</p>
+<h2 id="12-1-DOM变化"><a href="#12-1-DOM变化" class="headerlink" title="12.1 DOM变化"></a>12.1 DOM变化</h2><h3 id="12-1-1-针对XML命名空间的变化"><a href="#12-1-1-针对XML命名空间的变化" class="headerlink" title="12.1.1 针对XML命名空间的变化"></a>12.1.1 针对XML命名空间的变化</h3><p>1、Node类型的变化</p>
+<p>2、Document类型的变化</p>
+<p>3、Element类型的变化</p>
+<p>4、NamedNodeMap类型的变化</p>
+<h3 id="12-1-2-其他方面的变化"><a href="#12-1-2-其他方面的变化" class="headerlink" title="12.1.2 其他方面的变化"></a>12.1.2 其他方面的变化</h3><p>1、DocumentType类型的变化</p>
+<p>2、Document类型的变化</p>
+<p>3、Node类型的变化</p>
+<p>4、框架的变化</p>
+<h2 id="12-2-样式"><a href="#12-2-样式" class="headerlink" title="12.2 样式"></a>12.2 样式</h2><h3 id="12-2-1-访问元素的样式"><a href="#12-2-1-访问元素的样式" class="headerlink" title="12.2.1 访问元素的样式"></a>12.2.1 访问元素的样式</h3><p>1、DOM样式属性和方法</p>
+<p>2、计算的样式</p>
+<h3 id="12-2-2-操作样式表"><a href="#12-2-2-操作样式表" class="headerlink" title="12.2.2 操作样式表"></a>12.2.2 操作样式表</h3><p>1、CSS规则</p>
+<p>2、创建规则</p>
+<h3 id="12-2-3-元素大小"><a href="#12-2-3-元素大小" class="headerlink" title="12.2.3 元素大小"></a>12.2.3 元素大小</h3><p>1、偏移量</p>
+<p>2、客户区大小</p>
+<p>3、滚动大小</p>
+<p>4、确定元素大小</p>
+<h2 id="12-3-遍历"><a href="#12-3-遍历" class="headerlink" title="12.3 遍历"></a>12.3 遍历</h2><h3 id="12-3-1-NodeIterrator"><a href="#12-3-1-NodeIterrator" class="headerlink" title="12.3.1 NodeIterrator"></a>12.3.1 NodeIterrator</h3><h3 id="12-3-2-TreeWalker"><a href="#12-3-2-TreeWalker" class="headerlink" title="12.3.2 TreeWalker"></a>12.3.2 TreeWalker</h3><h2 id="12-4-范围"><a href="#12-4-范围" class="headerlink" title="12.4 范围"></a>12.4 范围</h2><h3 id="12-4-1-DOM中的范围"><a href="#12-4-1-DOM中的范围" class="headerlink" title="12.4.1 DOM中的范围"></a>12.4.1 DOM中的范围</h3><h3 id="12-4-2-IE8及更早版本中的范围"><a href="#12-4-2-IE8及更早版本中的范围" class="headerlink" title="12.4.2 IE8及更早版本中的范围"></a>12.4.2 IE8及更早版本中的范围</h3><h2 id="12-5-小结"><a href="#12-5-小结" class="headerlink" title="12.5 小结"></a>12.5 小结</h2></div><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-nav"><a class="pre" href="/2018/08/31/【JavaScript权威指南】事件/">【JavaScript权威指南】事件</a><a class="next" href="/2018/08/31/【JavaScript权威指南】DOM扩展/">【JavaScript权威指南】DOM扩展</a></div><div id="container"></div><link rel="stylesheet" href="/css/default.css?v=0.0.0"><script src="/js/gitment.browser.js?v=0.0.0"></script><script>var gitment = new Gitment({
+  owner: 'zmysb',
+  repo: 'zmysb.github.io',
+  oauth: {
+    client_id: '0c1d3880d2ff18d6d737',
+    client_secret: '93e80999306a8023541f9317b8e2db01e454583c',
+  },
+})
+gitment.render('container')
+</script></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/读书笔记/">读书笔记</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/影评/" style="font-size: 15px;">影评</a> <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】JavaScript与XML/">【JavaScript权威指南】JavaScript与XML</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】HTML5脚本编程/">【JavaScript权威指南】HTML5脚本编程</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】使用Canvas绘图/">【JavaScript权威指南】使用Canvas绘图</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】表单脚本/">【JavaScript权威指南】表单脚本</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】事件/">【JavaScript权威指南】事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】DOM2和DOM3/">【JavaScript权威指南】DOM2和DOM3</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】DOM扩展/">【JavaScript权威指南】DOM扩展</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】DOM/">【JavaScript权威指南】DOM</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】客户端检测/">【JavaScript权威指南】客户端检测</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/31/【JavaScript权威指南】BOM/">【JavaScript权威指南】BOM</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 一" target="_blank">广告位 一</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 二" target="_blank">广告位 二</a><ul></ul><a href="https://weibo.com/u/3837485237?refer_flag=1001030101_&amp;is_all=1" title="广告位 三" target="_blank">广告位 三</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2018 <a href="/." rel="nofollow">一零.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/fancybox/3.3.5/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
