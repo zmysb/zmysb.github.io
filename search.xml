@@ -1,48 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】新兴的API]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E6%96%B0%E5%85%B4%E7%9A%84API%2F</url>
+    <title><![CDATA[【JavaScript权威指南】新兴的API]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E6%96%B0%E5%85%B4%E7%9A%84API%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】最佳实践]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
+    <title><![CDATA[【JavaScript权威指南】最佳实践]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】离线应用与客户端存储]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8%2F</url>
+    <title><![CDATA[【JavaScript权威指南】离线应用与客户端存储]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8%2F</url>
+    <content type="text"><![CDATA[本章内容： 进行离线检测 使用离线缓存 在浏览器中保存数据 支持离线Web应用开发是HTML5的另一个重点。所谓离线Web应用，就是在设备不能上网的情况下仍然可以运行的应用。开发离线Web应用还需要几个步骤。首先是确保应用知道设备是否能上网，以便下一步执行正确的操作。然后，应用还必须能访问一定的资源（图像、JavaScript、CSS等），只有这样才能正常工作。最后，必须有一块本地空间用于保存数据，无论能否上网都不妨碍读写。 23.1 离线检测Navigator.onLine online offline 23.2 应用缓存23.3 数据存储23.3.1 Cookie1、限制 2、cookie的构成 3、JavaScript中的cookie 23.3.2 IE用户数据23.3.3 Web存储机制23.3.4 indexedDB23.4 小结]]></content>
+      <categories>
+        <category>前端</category>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【JavaScript权威指南】高级技巧]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】高级技巧]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%2F</url>
+    <title><![CDATA[【JavaScript权威指南】Ajax与Comet]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91Ajax%E4%B8%8EComet%2F</url>
+    <content type="text"><![CDATA[本章内容： 使用XMLHttpRequest对象 使用XMLHttpRequest事件 跨域Ajax通信的限制 21.1 XMLHttpRequest 对象21.1.1 XHR的用法open() send() responseText responseXML status statusText 21.1.2 HTTP头部信息 Accept Accept-Charset Accept-Encoding Accept-Language Connection Cookie Host Referer User-Agent 21.1.3 GET请求21.1.4 POST请求21.2 XMLHttpRequest 2级21.2.1 FormData21.2.2 超时设定21.2.3 overrideMimeType()方法21.3 进度事件21.3.1 load事件21.3.2 progress事件21.4 跨源资源共享21.4.1 IE对CORS的实现21.4.2 其他浏览器对CORS的实现21.4.3 Preflighted Reqeusts21.4.4 带凭据的请求21.4.5 跨浏览器的CORS21.5 其他跨域技术21.5.1 图像Ping21.5.2 JSONP21.5.3 Comet21.5.4 服务器发送事件21.5.5 Web Sockets21.5.6 SSE与Web Sockets21.6 安全21.7 小结]]></content>
+      <categories>
+        <category>前端</category>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【JavaScript权威指南】JSON]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JSON%2F</url>
+    <content type="text"><![CDATA[本章内容： 理解JSON语法 解析JSON 序列化JSON 2006年，JSON（JavaScript Object Notation，JavaScript对象表示法）是JavaScript的一个严格的子集，利用了JavaScript中的一些模式来表示结构化数据。与XML相比JSON是在JavaScript中读写结构化数据更好的方式。因为可以把JSON直接传给eval()，而且不必创建DOM对象。 关于JSON，最重要的是理解它只是一种数据格式，不是一种编程语言。虽然具有相同的语法形式，但JSON并不从属于JavaScript。而且，并不是只有JavaScript。而且，并不是只有JavaScript才使用JSON，毕竟JSON只是一种数据格式。很多编程语言都有针对JSON的解析器和序列化器。 20.1 语法20.1.1 简单值20.1.2 对象20.1.3 数组20.2 解析与序列化20.2.1 JSON对象20.2.2 序列化选项1、过滤结果 2、字符串缩进 3、toJSON()方法 20.2.3 解析选项20.3 小结]]></content>
+      <categories>
+        <category>前端</category>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【JavaScript权威指南】E4X]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91E4X%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】Ajax与Comet]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91Ajax%E4%B8%8EComet%2F</url>
+    <title><![CDATA[【JavaScript权威指南】JavaScript与XML]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JavaScript%E4%B8%8EXML%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】JSON]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JSON%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】E4X]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91E4X%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】JavaScript与XML]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JavaScript%E4%B8%8EXML%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[2018-08-31-【JavaScript权威指南】错误处理与调试]]></title>
-    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%2F</url>
+    <title><![CDATA[【JavaScript权威指南】错误处理与调试]]></title>
+    <url>%2F2018%2F09%2F07%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"></content>
   </entry>
   <entry>
