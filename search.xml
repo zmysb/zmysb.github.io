@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】新兴的API]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E6%96%B0%E5%85%B4%E7%9A%84API%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】最佳实践]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】离线应用与客户端存储]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E7%A6%BB%E7%BA%BF%E5%BA%94%E7%94%A8%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AD%98%E5%82%A8%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】高级技巧]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E9%AB%98%E7%BA%A7%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】Ajax与Comet]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91Ajax%E4%B8%8EComet%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】JSON]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JSON%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】E4X]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91E4X%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】JavaScript与XML]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JavaScript%E4%B8%8EXML%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[2018-08-31-【JavaScript权威指南】错误处理与调试]]></title>
+    <url>%2F2018%2F09%2F07%2F2018-08-31-%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E4%B8%8E%E8%B0%83%E8%AF%95%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[【JavaScript权威指南】JavaScript与XML]]></title>
     <url>%2F2018%2F08%2F31%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91JavaScript%E4%B8%8EXML%2F</url>
     <content type="text"></content>
@@ -18,12 +63,19 @@
   <entry>
     <title><![CDATA[【JavaScript权威指南】表单脚本]]></title>
     <url>%2F2018%2F08%2F31%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E8%A1%A8%E5%8D%95%E8%84%9A%E6%9C%AC%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[本章内容： 理解表单 文本框验证与交互 使用其他表单控制 JavaScript最初的一个应用，就是分担服务器处理表单的责任。尽管目前的Web和JavaScript已经有了长足的发展，但Web表单的变化并不明显。由于Web表单没有为许多常见任务提供现成的解决手段，很多开发人员不仅会在验证表单时使用JavaScript，而且还增强了一些标准表单控件的默认行为。 14.1 表单的基础知识14.1.1 提交表单14.1.2 重置表单14.1.3 表单字段1、共有的表单字段属性 disabled form name readOnly tabIndex type value 2、共有的表单字段方法 focus() blur() 3、共有的表单字段事件 blur change focus 14.2 文本框脚本1234567891011121314151617181920212223242526272829303132333435363738394041### 14.2.1 选择文本1、选择（select）事件2、取得选择的文本3、选择部分文本### 14.2.2 过滤输入1、屏蔽字符2、操作剪贴板- beforecopy- copy- beforecut- cut- beforepaste- paste### 14.2.3 自动切换焦点### 14.2.4 HTML5约束验证1、必填字段2、其他输入类型3、数值范围4、输入模式5、检测有效性6、禁用验证## 14.3 选择框脚本```&lt;select&gt; add(newOption,relOption) multiple option remove(index) selectedIndex size value &lt;option&gt; index label selected text value 14.3.1 选择选项14.3.2 添加选项14.3.3 移除选项14.3.4 移动和重排选项14.4 表单序列化14.5 富文本编辑14.5.1 使用contenteditable属性14.5.2 操作富文本14.5.3 富文本选区14.5.4 表单与富文本14.6 小结]]></content>
+      <categories>
+        <category>前端</category>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[【JavaScript权威指南】事件]]></title>
     <url>%2F2018%2F08%2F31%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91%E4%BA%8B%E4%BB%B6%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[本章内容： 理解事件流 使用事件处理程序 不同的事件类型 JavaScript与HTML之间的交互式通过事件实现的。事件，就是文档或浏览器窗口中发生的一些特定的交互瞬间。可以使用侦听器（或处理程序）来预定事件，以便事件发生时执行相应的代码。这种在传统软件工程中被称为观察员模式的模型，支持页面的行为（JavaScript代码）与页面的外观（HTML和CSS代码）之间的松散耦合。 事件出现最初是为了分担服务器运算负载的一种手段。浏览器的事件系统相对比较复杂，所有主要浏览器实现的“DOM2级事件”本身没有涵盖所有事件类型，BOM事件与DOM事件之间的关系并不十分清晰。DOM3级事件出现后，增强的DOM事件API变的更加繁琐。使用时或简单或复杂，难易程度会因你的需求不同。不过，有关事件的一些核心概念是一定要理解的。 13.1 事件流事件流描述的是从页面接收事件的顺序。但IE和Netscape开发团队居然提出了差不多是完全相反的事件流的概念。IE的时间流是事件冒泡流，而Netscape Communicator的事件流是事件捕获流。 13.1.1 事件冒泡IE的事件流叫做事件冒泡（event bubbling），即事件开始时由最具体的元素（文档中 嵌套层次最深的那个节点）接收，然后逐级向上传播到较为不具体的节点（文档）。以下面的HTML页面为例： 123456789&lt;!DOCUTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;title&gt;Event Bubbling Example&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div id="myDiv"&gt;Click Me!&lt;/div&gt; &lt;/body&gt;&lt;/html&gt; 如果你单击了页面中的121、```&lt;div&gt; 2、123、```&lt;html&gt; 4、123456### 13.1.2 事件捕捉Netscape Communicator团队提出的另一种事件流叫做**事件捕获**（event capturing）。事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。事件捕获的用语在于在事件到达预定目标之前捕获它。以前面的HTML页面为例，单击```&lt;div&gt;```元素会以下列顺序触发click事件：1、```document 2、123、```&lt;body&gt; 4、&lt;div&gt; 老版本的浏览器不支持事件捕获。建议放心使用事件冒泡，在有特殊需要时再使用事件捕获。 13.1.3 DOM事件流“DOM2级事件”规定的时间流包括三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。首先发生的是事件捕获，为截获事件提供了机会。然后是事件的目标接收到事件。最后一个阶段是冒泡阶段，可以在这个阶段对事件作出响应。以前面的简单HTML页面为例，单击&lt;div&gt;元素会按照如下图所示顺序触发事件： 在DOM事件流中，实际的目标（&lt;div&gt;元素）在捕获阶段不会接收到事件。这意味着在捕获阶段，事件从document到&lt;html&gt;再到&lt;body&gt;后就停止了。下一阶段是“处于目标”阶段，于是事件在&lt;div&gt;发生，并在事件处理（后面会提到这个概念）中被看成冒泡阶段的一部分。然后，冒泡阶段发生，事件又传播回文档。 但多数支持DOM事件流的浏览器都实现了一种特定的行为；即使“DOM2级事件”规范明确要求捕获阶段不会 涉及事件目标，但都会在捕获阶段触发对象上的事件。结果就是有两个机会在目标对象上面操作事件。 13.2 事件处理程序事件就是用户或浏览器自身执行的某种动作。诸如click、load和mouseover，都是事件的名字。而响应某个事件的函数就叫做事件处理程序（或事件侦听器）。事件处理程序的名字以“on”开头。为事件指定处理程序的方式有好几种。 13.2.1 HTML事件处理程序某个元素支持的每种事件，都可以使用一个与相应时间处理程序同名的HTML特性来指定 13.2.2 DOM0级事件处理程序通过JavaScript指定时间处理程序的传统方式，就是将一个函数赋值给一个事件处理程序 13.2.3 DOM2级事件处理程序addEventListener() removeEventListener() 13.2.4 IE事件处理程序attachEvent() detachEvent() 13.2.5 跨浏览器的事件处理程序创建一个方法addHandler()，它属于一个名叫EventUtil的对象，使用这个对象来处理浏览器之间的差异 13.3 事件对象在触发DOM上的某个事件时，会产生一个事件对象event，这个对象中包含着所有与事件有关的信息 13.3.1 DOM中的事件对象兼容DOM的浏览器会将一个event对象传入到事件处理程序中。无论指定事件处理程序时使用什么方法（DOM0级或DOM2级），都会传入event对象 13.3.2 IE中的事件对象13.3.3 跨浏览器的事件对象13.4 事件类型13.4.1 UI事件13.4.2 焦点事件13.4.3 鼠标与滚轮事件13.4.4 键盘与文本事件13.4.5 复合事件13.4.6 变动事件13.4.7 HTML5事件13.4.8 设备事件13.4.9 触摸与手势事件13.5 内存和性能13.5.1 事件委托13.5.2 移出事件处理程序13.6 模拟事件13.6.1 DOM中的事件模拟13.6.2 IE中的事件模拟13.7 小结]]></content>
       <categories>
         <category>前端</category>
         <category>读书笔记</category>
@@ -59,7 +111,7 @@
   <entry>
     <title><![CDATA[【JavaScript权威指南】DOM]]></title>
     <url>%2F2018%2F08%2F31%2F%E3%80%90JavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%91DOM%2F</url>
-    <content type="text"><![CDATA[本章内容： 理解包含不同层次节点的DOM 使用不同的节点类型 克服浏览器兼容性问题及各种陷阱 DOM（文档对象模型）是针对HTML和XML文档的一个API（应用程序编程接口）。DOM描绘了一个层次化的节点树，允许开发人员添加、移除和修改页面的某一部分。它已经成为表现和操作页面标记的真正跨平台、语言中立的方式。 1998年10月DOM1级规范成为W3C的推荐标准，为基本的文档结构及查询提供了接口。本章主要讨论与浏览器中HTML页面相关的DOM1级的特性和应用，以及JavaScript对DOM1级的实现。IE、Firefox、Safari、Chrome和Opera都非常完善地实现了DOM。 【注意，IE中所有的DOM对象都是以COM对象的形式实现的。IE中的DOM对象与原生JavaScript对象的行为或活动特点并不一致。本章将较多地谈及这些差异】 10.1 节点层次10.1.1 Node类型1、nodeName和nodeValue属性 2、节点关系 3、操作节点 4、其他方法 10.1.2 Document类型1、文档的字节点 2、文档信息 3、查找元素 4、特殊集合 5、DOM一致性检测 6、文档写入 10.1.3 Element类型1、HTML元素 2、取得特性 3、设置特性 4、attributes属性 5、创建元素 6、元素的字节点 10.1.4 Text类型1、创建文本节点 2、规范化文本节点 3、分割文本节点 10.1.5 Comment类型10.1.6 CDATASection类型10.1.7 DocumentType类型10.1.8 DocumentFragment类型10.1.9 Attr类型10.2 DOM操作技术10.2.1 动态脚本10.2.2 动态样式10.2.3 操作表格10.2.4 使用NodeList10.3 小结]]></content>
+    <content type="text"><![CDATA[本章内容： 理解包含不同层次节点的DOM 使用不同的节点类型 克服浏览器兼容性问题及各种陷阱 DOM（文档对象模型）是针对HTML和XML文档的一个API（应用程序编程接口）。DOM描绘了一个层次化的节点树，允许开发人员添加、移除和修改页面的某一部分。它已经成为表现和操作页面标记的真正跨平台、语言中立的方式。 1998年10月DOM1级规范成为W3C的推荐标准，为基本的文档结构及查询提供了接口。本章主要讨论与浏览器中HTML页面相关的DOM1级的特性和应用，以及JavaScript对DOM1级的实现。IE、Firefox、Safari、Chrome和Opera都非常完善地实现了DOM。 【注意，IE中所有的DOM对象都是以COM对象的形式实现的。IE中的DOM对象与原生JavaScript对象的行为或活动特点并不一致。本章将较多地谈及这些差异】 10.1 节点层次DOM可以将任何HTML或XML文档描绘成一个由多层节点构成的结构。节点分为几种不同的类型，每种类型分别表示文档中不同的信息及（或）标记。每个节点都拥有各自的特点、数据和方法，另外也与其他节点存在某种关系。节点之间的关系构成了层次，而所有页面标记则表现为一个以特定节点为根节点的树形结构。以下面HTML为例： 12345678910&lt;html&gt; &lt;head&gt; &lt;title&gt;Sample Page&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;p&gt; Hello World! &lt;/p&gt; &lt;/body&gt;&lt;/html&gt; 其层次结构如下： 在这个例子中，文档节点只有一个子节点即12345678910111213141516171819202122232425262728每一段标记都可以通过树中的一个节点来表示；HTML元素通过元素节点表示，特性（attribute）通过特性节点表示，文档类型节点通过文档类型节点表示，注释节点通过注释节点表示。总共有12中节点类型，这些类型都继承自一个基类型。### 10.1.1 Node类型DOM1级定义了一个Node接口，该接口将由DOM中所有节点类型类型实现。这Node接口在JavaScript中是作为Node类型实现的；JavaScript中的所有节点类型都继承自Node类型，因此所有节点类型都共享着相同的基本属性和方法。每个节点都有一个nodeType属性，用来表明节点的类型。节点类型由在Node类型中定义的下列12个数值常量来表示，任何节点类型必居其一：- Node.ELEMENT_NODE(1)- Node.ATTRIBUTE_NODE(2)- Node.TEXT_NODE(3)- Node.CDATA_SECTION_NODE(4)- Node.ENTITY_REFERENCE_NODE(5)- Node.ENTITY_NODE(6)- Node.PROCESSING_INSTRUCTION_NODE(7)- Node.COMMENT_NODE(8)- Node.DOCUMENT_NODE(9)- Node.DOCUMENT_TYPE_NODE(10)- Node.DOCUMENT_FRAGMENT_NODE(11)- Node.NOTATION_NODE(12)通过比较上面这些常量，就可以很容易地确定节点的类型：```javascriptif(someNode.nodeType == 1)&#123; alert(&quot;Node is an element&quot;)&#125; 开发人员最常用的是元素和文本节点，本章后面将详细讨论每个节点类型的受支持情况及使用方法。 1、nodeName和nodeValue属性 123if(someNode.nodeType == 1)&#123; //先检查是不是一个元素 value = someNode.nodeName; //元素标签名&#125; nodeName中保存的始终是元素的标签名；nodeValue的值始终为null。 2、节点关系 每个节点都有一个childNodes属性，其中保存着一个NodeList对象。NodeList是一种类数组对象，是动态执行查询的结果，用于保存一组有序的节点，这个对象也有length属性，访问这些节点的方式——可以通过方括号，也可以使用item()方法： 123var firstChild = someNode.childNodes[0];var secondChild = someNode.childNodes.item(1);var count = someNode.childNodes.length; //访问那一刻的length 每个节点都有一个parentNode属性，该属性指向文档树中的父节点；previousSibling属性指向前一个同胞节点；nextSibling属性指向后一个同胞节点。这些关系指针都是只读的。 【虽然每种节点类型都继承自Node，但不是每种节点都有子节点。本章后面将会讨论不同节点类型之间的差异】 3、操作节点 appendChild(要插入的节点)用于向childNodes列表末尾添加一个节点。添加后所有关系指针将得到响应的更新； insertBefore(要插入的节点，作为参照的节点)方法用于向childNodes列表特定位置添加一个节点； replacedNode(要插入的节点，要替换的节点)方法用于向childNodes列表特定位置替换一个节点； removeNode(要移除的节点)方法用于向childNodes列表移除一个节点； 后两个方法替换和移除掉的节点仍然为文档所有，只不过在文档中已经没有了自己的位置。这四个方法只能用在支持子节点的节点上。 4、其他方法 有两个方法是所有类型节点都有的。 cloneNode() 用于创建调用这个方法的节点的一个完全相同的副本；复制后的节点属于文档所有，未指定父节点时没有位置，除非通过上面前三个方法添加进文档中； normalize()用于处理文档树中的文本节点；在文本节点不包含文本时删除这个节点，或者接连出现两个文本节点时合并这两个节点。 10.1.2 Document类型JavaScript通过Document类型表示文档。在浏览器中，document对象是HTMLDocument（继承自Document类型）的一个实例，表示整个HTML页面。而且document对象是window对象的一个属性，因此可以作为全局对象来访问。Document节点具有下列特征： nodeType值为9； nodeName值为“#document”； nodeValue值为null； parentNode值为null； ownerDocument值为null； 其子节点可能是一个DocumentType（最多一个）、Element（最多一个）、ProcessingInstruction或Comment。 Document类型可以表示HTML页面或其他基于XML的文档。不过，最常见的应用还是作为HTMLDocument示例的document对象。通过这个文档对象，不仅可以取得与页面有关的信息，而且还能操作页面的外观及底层结构。 1、文档的子节点 DOM标准规定Document节点的子节点可以是一个DocumentType（最多一个）、Element（最多一个）、ProcessingInstruction或Comment，还有两个内置的访问其字节点的快捷方式：documentElement属性；body属性： 12345&lt;html&gt; &lt;body&gt; &lt;/body&gt;&lt;/html&gt; 上面这个页面经浏览器解析后其文档中只包含一个子节点即1234567```javascriptvar html = document.documentElement; //取得对&lt;html&gt;的调用alert(html === document.childNodes[0]); //truealert(html === document.firstChild); //truevar body = document.body; //取得对&lt;body&gt;的引用 Document其他的可能子节点里的DocumentType，可以通过documentType属性访问: 1var doctype = document.documentType; //取得对&lt;!DOCTYPE&gt;的引用 2、文档信息 作为HMTLDocument的一个实例，document对象还有一些标准的Document对象没有的属性： 1234567var title = document.title //取得文档标题document.title = "New page title" //设置文档标题//与网页请求相关的3个属性，只有domain属性是可以设置的var url = document.URL; //取得完整的URLvar domain = document.domain; //取得域名var referrer = document.refferer; //取得来源页面的URL 3、查找元素 最常见的DOM应用，取得特定某个或某组元素的引用，然后执行一些操作。取得元素的操作可以使用document对象的几个方法来完成。Document类型为此提供了两个方法： getElementById()返回查找到的第一个匹配元素； getElementsByTagName()返回零个或多个元素的NodeList（在HTML文档中返回HTMLCollection对象）； getElementsByName()返回特定name特性值的零个或多个元素的NodeList（在HTML文档中返回HTMLCollection对象）。 4、特殊集合 除了属性和方法，document对象还有一些特殊的结合。这些集合都是HTMLCollection对象(会随着文档内容的更新而更新)，为访问文档常用的部分提供了快捷方式： document.anchors document.applets document.forms document.images document.links 5、DOM一致性检测 由于DOM分级别，包含多个部分，因此检测浏览器实现了DOM哪些部分就十分必要了。document.implementation属性的hasFeature(要检测的DOM功能，版本号)方法，支持则返回true： 1var hasXMLDom= document.implementation.hasFeature("XML","1.0") 最好出了检测hasFeatrue前也进行能力检测，因为各个浏览器对这个方法支持不一致。 6、文档写入 document对象有4个方法，将输入流写入网页中，都接收一个写入流字符串参数： write() 原样写入字符串 writeIn() 在字符串末尾再加上一个换行符（12345678910111213141516171819202122232425262728293031323334353637383940414243open() 打开网页输出流close() 关闭网页输出流### 10.1.3 Element类型出了Document类型之外，Element类型就要算是Web编程中最常用的类型了。它用于表现HTML和XML元素，提供了对元素标签名、字节点及特性的访问，有以下特征：- nodeType值为1；- nodeName值为元素的标签名；- nodeValue值为null；- parentNode值可能是Document或Element；- 其子节点可能是一个Element、Text、ProcessingInstruction、CDATASection、Comment或EntityReference。要访问元素的标签名，可以使用nodeName属性，也可以使用tagName属性；这两个值会返回相同的值1、HTML元素 所有的HTML元素都由HTMLElement类型表示，不是直接通过这个类型，也是通过它的子类型来表示。HTMLElement类型直接继承自Element并添加了一些属性。添加的这些属性分别对应于每个HTML元素中都存在的下列标准特性：可以获取和设置- id- title- lang- dir- className2、取得特性（文档里面元素的属性）每个元素都有一或多个特性（与DOM对象的属性区分开），这些特性的用途是给出相应元素或其内容的附加内容。操作特性的DOM方法主要有三个，均接收特性名作为参数：getAttribute()setAttribute()removeAttribute()```html&lt;div id=&quot;myDiv&quot; align=&quot;left&quot; my_special_attribute=&quot;hello!&quot;&gt;&lt;/div&gt; 123var div = document.getElementById("myDiv");alert(div.getAttribute("id")); //"myDiv"alert(div.id == div.getAttribute("id")); //true 有两类特殊的特性，虽然有对应的属性名，但属性的值与通过getAttribute()返回的值不一样。第一个是style，通过getAttribute()返回CSS文本，通过属性返回对象（因为style属性是用于编程方式访问元素样式的，因此并没有直接映射到style特性）；第二个特性是onclick这样的事件处理程序，通过getAttribute()返回相应代码的字符串，通过属性返回JavaScript函数（如未在元素中指定相应特性，则返回null），这是因为onclick及其他事件处理程序属性本事就应该被赋予函数值。 由于存在这些差别，在通过JavaScript以编程方式操组DOM时，开发人员经常不使用getAttribute()，而是只使用对象的属性。只有在取得自定义特性值的情况下，才会使用getAttribute() 3、设置特性 与getAttribute()相对的setAttribute(要设置的特性名，值) 4、attributes属性（不如2常用） Element类型是使用attributes属性的唯一一个DOM节点类型。attributes属性中包含一个NamedNodeMap，与NodeList类似，也是一个动态的集合。元素的每一个特性都由一个Attr节点表示，每个节点都保存在NamedNodeMap对象中。NamedNodeMap对象拥有以下方法： getNamedItem(name)： 返回nodeName属性等于name的节点； removeNamedItem(name)： 从列表中移除nodeName属性等于name的节点；与在元素上调用removeAtrribute效果相同，但会返回被删除特性的Attr节点 setNamedItem(node)： 向列表中添加节点，以节点的nodeName属性为索引； item(pos)：返回位于数字pos位置处的节点 attributes属性中包含的节点的nodeName就是特性的名称，而节点的nodeValue就是特性的值： 123//取得元素的id特性var id = element.attributes.getNamedItem("id").nodeValue;var id = element.attributes["id"].nodeValue; //使用方括号访问 5、创建元素 document.createElement(标签名)方法，再使用appendChild()、insertBefore()或replaceChild()方法添加到文档元素中； document.createElement(完整元素标签) 6、元素的字节点 元素可以有任意树木的子节点和后代节点，因为元素可以是其他元素的子节点。元素的childNodes属性中包含了它的所有子节点，这些子节点有可能是元素、文本节点、注释或处理指令。 10.1.4 Text类型文本节点由Text类型表示，包含的是可以照字面解释的纯文本内容： nodeType值为3； nodeName值为”#text”； nodeValue值为节点所包含的文本； parentNode值是一个Element； 不支持（没有）子节点。 可以通过nodeValue属性或data属性访问Text节点中包含的文本。操作节点文本的方法： appendDate(text) deleteDate(offset,count) insertData(offset,text) replaceDate(offset,count,text) splitText(offset) substringData(offset,count) 除这些方法外，文本节点还有一个length属性 1、创建文本节点 document.createTextNode(要插入节点的文本) 2、规范化文本节点 在一个包含两个或多个文本节点的父元素上调用normalize()方法，则会将所有文本节点合并成一个。 3、分割文本节点 与normalize()方法相反splitText()方法将一个文本节点分成两个文本节点。 分割文本节点是从文本节点中提取数据的一种常见的DOM解析技术。 10.1.5 Comment类型注释在DOM中是通过Comment类型来表示的。有以下特征： nodeType值为8； nodeName值为”#comment”； nodeValue值为注释的内容； parentNode值可能是Document或Element； 不支持（没有）子节点。 Comment类型与Text类型继承自相同的基类，因此它拥有除splitText()以外的所有字符串操作方法。与Text类型相似，也可以通过nodeValue属性或data属性访问注释内容。 还可以使用document.createComment()创建注释节点 10.1.6 CDATASection类型CDATASection类型只针对基于XML的文档 10.1.7 DocumentType类型DocumentType包含着与文档doctype有关的所有信息，它具有下列特征： nodeType值为10； nodeName值为doctype的名称； nodeValue值为null； parentNode值是Document； 不支持（没有）子节点。 10.1.8 DocumentFragment类型10.1.9 Attr类型10.2 DOM操作技术很多时候，DOM操作都比较简明，因此用JavaScript生成那些通常原本是用HTML代码生成的内容并不麻烦。不过有些时候，操作DOM并不像表面上看起来那么简单 10.2.1 动态脚本使用&lt;script&gt;元素可以向页面中插入JavaScript代码，一种方式是通过其src特性包含外部文件，另一种方式就是用这个元素本事来包含代码。动态脚本指的是在页面加载时不存在，但在将来的某一时刻通过修改DOM动态添加的脚本。跟操作HTML元素一样，创建动态脚本也有两种方式：插入外部文件和直接插入JavaScript代码 10.2.2 动态样式10.2.3 操作表格10.2.4 使用NodeList10.3 小结]]></content>
       <categories>
         <category>前端</category>
         <category>读书笔记</category>
